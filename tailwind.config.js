@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "selector",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,11 +8,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        gradientHero:
+          "linear-gradient(180deg, rgba(138,75,224,1) 0%, rgba(120,39,230,1) 100%)",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#3783c8",
+        secondary: "#F7467F",
+        muted: "#757575",
+        dark: "#353F4F",
+        border: "#ECE9F1",
+        background: "#F5F6F8",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

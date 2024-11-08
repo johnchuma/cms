@@ -2,26 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.input-style {
+ @apply bg-background focus:border  border-0 w-full py-4 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.search-input-style {
+    @apply bg-background focus:border  border-0  py-3 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400
+   }
+.checkbox-style{
+    @apply rounded checked:bg-primary checked:focus:bg-primary checked:ring-primary checked:hover:bg-primary focus:ring-primary focus:border-primary hover:ring-primary 
 }
