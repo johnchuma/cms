@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 export const metadata = {
-  title: "CMS",
+  title: "hemani",
   description: "Simplify Church Operations with the our Management Tool",
 };
 

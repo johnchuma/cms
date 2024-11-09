@@ -6,9 +6,6 @@ import moment from "moment";
 import { AiOutlineSearch } from "react-icons/ai";
 import Spinner from "@/app/components/spinner";
 import { ChurchContext } from "@/app/dashboard/layout";
-import GroupLeaderActions from "@/app/components/groupLeaderActions";
-import { getGroupExpenses } from "@/app/services/groupExpenses.services";
-import GroupExpenseActions from "@/app/components/groupExpenseActions";
 import {
   getProjectExpenses,
   getProjectExpensesReport,
@@ -82,7 +79,6 @@ const Page = () => {
                         <td className="py-4 px-4">
                           <input
                             onClick={() => {
-                              // alert(value);
                               if (selectedGroups.includes(item.uuid)) {
                                 setSelectedGroups([]);
                               } else {

@@ -6,22 +6,10 @@ import PieChart from "@/app/components/pieChart";
 import Spinner from "@/app/components/spinner";
 import { ChurchContext } from "@/app/dashboard/layout";
 import { GrMoney, GrSubtract, GrValidate } from "react-icons/gr";
-import {
-  getFinanceReport,
-  getMembersStats,
-} from "@/app/services/reportsServices";
+import { getFinanceReport } from "@/app/services/reportsServices";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import {
-  AiFillAmazonSquare,
-  AiOutlineAccountBook,
-  AiOutlineBank,
-  AiOutlinePlus,
-  AiOutlineUser,
-  AiOutlineWallet,
-} from "react-icons/ai";
-import { LiaFemaleSolid, LiaMaleSolid } from "react-icons/lia";
-import { MdChildCare } from "react-icons/md";
+
 import { TbMoneybag, TbTimeDuration10 } from "react-icons/tb";
 
 const Page = () => {
