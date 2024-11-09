@@ -3,7 +3,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 export const app = axios.create({
-  baseURL: "https://api.hemani.io",
+  baseURL: "http://localhost:5000",
 });
 
 export const register = async (data) => {

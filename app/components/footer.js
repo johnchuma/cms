@@ -16,35 +16,21 @@ const Footer = () => {
         <div className="  col-span-12 md:col-span-3 pb-6 md:py-0">
           <h1 className="text-2xl font-bold ">Hemani</h1>
         </div>
-        <div className=" col-span-4 md:col-span-2 ">
-          <h1 className="text-lg font-bold">Company</h1>
-          <div className="flex flex-col space-y-2 mt-4">
-            {[
-              { title: "About Us", path: "#aboutus" },
-              { title: "Contact", path: "#aboutus" },
-              { title: "Our Vision", path: "#aboutus" },
-              { title: "Our Mission", path: "#aboutus" },
-            ].map((item) => {
-              return (
-                <Link key={item.path} className="text-muted " href={item.path}>
-                  {item.title}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
 
         <div className=" col-span-4 md:col-span-2">
           <h1 className="text-lg font-bold">Product</h1>
           <div className="flex flex-col space-y-2 mt-4">
             {[
-              { title: "Pricing", path: "#aboutus" },
-              { title: "How it work", path: "#aboutus" },
-              { title: "FAQ", path: "#aboutus" },
-              { title: "Help Center", path: "#aboutus" },
+              { title: "Features", path: "#features" },
+              { title: "Pricing", path: "#pricing" },
+              { title: "FAQ", path: "#FAQ" },
             ].map((item) => {
               return (
-                <Link key={item.path} className="text-muted " href={item.path}>
+                <Link
+                  key={item.path}
+                  className="text-muted hover:text-primary transition-all duration-200  "
+                  href={item.path}
+                >
                   {item.title}
                 </Link>
               );
@@ -61,13 +47,37 @@ const Footer = () => {
               { title: "Sitemap", path: "#aboutus" },
             ].map((item) => {
               return (
-                <Link key={item.path} className="text-muted " href={item.path}>
+                <Link
+                  key={item.path}
+                  className="text-muted hover:text-primary transition-all duration-200 "
+                  href={item.path}
+                >
                   {item.title}
                 </Link>
               );
             })}
           </div>
         </div>
+        <div className=" col-span-4 md:col-span-2 ">
+          <h1 className="text-lg font-bold">Contacts</h1>
+          <div className="flex flex-col space-y-2 mt-4">
+            {[
+              { title: "info@hemani.io", path: "#aboutus" },
+              { title: "+255627707434", path: "#aboutus" },
+            ].map((item) => {
+              return (
+                <Link
+                  key={item.path}
+                  className="text-muted hover:text-primary transition-all duration-200  "
+                  href={item.path}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
         <div className=" col-span-12 md:col-span-3">
           <h1 className="text-lg font-bold  pt-6 md:pt-0">Subscribe</h1>
 

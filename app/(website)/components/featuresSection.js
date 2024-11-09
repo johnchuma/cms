@@ -44,7 +44,7 @@ const FeatureSection = () => {
               key={index}
               className="space-y-3 flex flex-col items-center text-center"
             >
-              <div className="bg-primary bg-opacity-10 text-primary text-3xl p-8 rounded-full">
+              <div className="bg-primary bg-opacity-5 text-primary text-3xl p-8 rounded-full">
                 {item.icon}
               </div>
               <h1 className="text-xl font-bold">{item.title}</h1>

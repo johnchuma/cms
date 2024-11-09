@@ -49,7 +49,14 @@ const Layout = ({ children }) => {
   ) : (
     churches.length > 0 && (
       <div className={`${isDark ? "dark" : "light"} text-dark `}>
-        <div className="inset-0 "></div>
+        {/* <div className="bg-primary w-full py-2 shadow-lg text-center">
+          <h1 className="text-white text-sm">
+            Available messages: 230
+            <span className="bg-secondary cursor-pointer text-white text-sm p-1 rounded-lg font-bold ml-3">
+              Buy More
+            </span>
+          </h1>
+        </div> */}
         <div className="flex">
           <div className="w-[18%] 2xl:w-[14%] border-r border-border h-screen  dark:bg-dark text-dark dark:text-white transition-all   fixed  pt-4 ">
             <div className="  pb-3 mb-2">

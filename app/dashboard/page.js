@@ -125,7 +125,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="flex mt-8 space-x-6 items-stretch">
+          {/* <div className="flex mt-8 space-x-6 items-stretch">
             <div className="w-6/12 ">
               <BarChart
                 xaxis={Object.keys(data.guestsReports)}
@@ -137,7 +137,7 @@ const Page = () => {
               />
             </div>
             <div className="w-6/12"></div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

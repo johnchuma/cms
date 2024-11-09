@@ -6,7 +6,7 @@ const ValuesSection = () => {
       {/* First Section */}
       <div className="flex flex-col-reverse  md:flex-row space-y-4 md:space-x-32 items-center">
         <div className="w-full md:w-6/12">
-          <Image height="60000" width="60000" src="/engagement2.png" />
+          <Image height="60000" width="60000" src="/engagement.png" />
         </div>
         <div className="w-full md:w-6/12 space-y-4">
           <h1 className=" font-medium text-muted ">Enhance Engagement</h1>
