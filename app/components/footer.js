@@ -98,7 +98,7 @@ const Footer = () => {
             { icon: <FaLinkedin />, href: "" },
           ].map((item) => {
             return (
-              <Link key={icon} href={item.href}>
+              <Link key={item.icon} href={item.href}>
                 {item.icon}
               </Link>
             );

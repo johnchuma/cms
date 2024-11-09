@@ -12,8 +12,7 @@ import BarChart from "../components/barChart";
 import { getMembersStats } from "../services/reportsServices";
 
 const Page = () => {
-  const { selectedChurch, setPageTitle, setAddPath } =
-    useContext(ChurchContext);
+  const { selectedChurch, setPageTitle } = useContext(ChurchContext);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -60,7 +59,7 @@ const Page = () => {
                 path: "",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white shadow rounded-lg">
+              <div key={item} className="bg-white shadow rounded-lg">
                 <div className="flex space-x-4 p-4">
                   <div className="bg-primary bg-opacity-5  text-primary text-xl flex justify-center items-center size-12 rounded-lg">
                     {item.icon}

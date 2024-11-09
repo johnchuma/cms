@@ -1,20 +1,12 @@
 "use client";
-import Link from "next/link";
 import { useContext } from "react";
 import { ChurchContext } from "../../layout";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getChurchMembers } from "@/app/services/memberServices";
 import moment from "moment";
-import {
-  AiOutlineBook,
-  AiOutlineDelete,
-  AiOutlineEdit,
-  AiOutlineSearch,
-  AiOutlineUserAdd,
-} from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import Spinner from "@/app/components/spinner";
-import { BsChevronBarDown, BsChevronDown } from "react-icons/bs";
 import MemberActions from "@/app/components/memberActions";
 import Pagination from "@/app/components/pagination";
 
@@ -110,9 +102,7 @@ const Page = () => {
                   return (
                     <tr
                       key={item.uuid}
-                      className={`even:bg-background ${
-                        !item.isActive && ""
-                      }`}
+                      className={`even:bg-background ${!item.isActive && ""}`}
                     >
                       <td className="px-4 py-4">
                         <input
