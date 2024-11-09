@@ -1,12 +1,14 @@
 const FAQSection = () => {
   return (
-    <div className="text-dark w-11/12 2xl:w-9/12 mx-auto py-24 ">
+    <div id="FAQ" className="text-dark w-11/12 2xl:w-9/12 mx-auto py-24 ">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold ">Frequently Asked Questions</h1>
+        <h1 className="text-3xl md:text-4xl font-bold ">
+          Frequently Asked Questions
+        </h1>
         <p className="text-muted text-lg">Check out the most asked questions</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-12 mt-16">
+      <div className="grid grid-cols-2 gap-6 md:gap-12 mt-16">
         {[
           {
             title: "What features are included?",

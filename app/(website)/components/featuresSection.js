@@ -5,15 +5,18 @@ import { SlCalender } from "react-icons/sl";
 
 const FeatureSection = () => {
   return (
-    <div className="text-dark w-11/12 2xl:w-9/12 mx-auto py-24 border-b-2 border-border">
+    <div
+      id="features"
+      className="text-dark w-11/12 2xl:w-9/12 mx-auto py-24 border-b-2 border-border"
+    >
       <div className="text-center space-y-2">
-        <h1 className="text-4xl font-bold">Our Features</h1>
-        <p className="text-muted text-lg">
+        <h1 className="text-3xl md:text-4xl font-bold">Software Features</h1>
+        <p className="text-muted text-base md:text-lg">
           Explore the key features of our church management system
         </p>
       </div>
 
-      <div className="grid grid-cols-4 gap-6 mt-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
         {[
           {
             icon: <FaRegUser />,

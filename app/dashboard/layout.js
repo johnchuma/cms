@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
           <div className="w-[18%] 2xl:w-[14%] border-r border-border h-screen  dark:bg-dark text-dark dark:text-white transition-all   fixed  pt-4 ">
             <div className="  pb-3 mb-2">
               <Link href="/" className="px-6 text-2xl font-bold">
-                CMS
+                Hemani
               </Link>
               <div className="w-10/12 mx-auto flex items-center space-x-2 mt-12">
                 <select

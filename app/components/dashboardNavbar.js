@@ -34,7 +34,10 @@ const DashboardNavbar = ({ title, pathname, setIsDark, isDark }) => {
               <p className="flex items-center text-sm text-muted space-x-2">
                 {paths.map((item, index) => {
                   return (
-                    <div className="flex space-x-2 items-center cursor-pointer ">
+                    <div
+                      key={item}
+                      className="flex space-x-2 items-center cursor-pointer "
+                    >
                       <div
                         className="hover:text-primary hover:underline capitalize"
                         onClick={() => {

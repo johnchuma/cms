@@ -8,7 +8,7 @@ import ValuesSection from "./components/valuesSection";
 const Page = () => {
   return (
     <div>
-      <div className="min-h-screen w-screen bg-primary text-white pt-28 ">
+      <div className=" h-auto pb-12   md:min-h-screen w-screen bg-primary text-white pt-28 ">
         <HeroSection />
       </div>
       <FeatureSection />

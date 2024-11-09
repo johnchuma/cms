@@ -54,7 +54,7 @@ const Page = () => {
             }}
             className="w-9/12 2xl:w-6/12 mx-auto space-y-4"
           >
-            <h1 className="font-semibold text-3xl">Sign Up</h1>
+            <h1 className="font-semibold text-3xl">Create an account</h1>
 
             <button
               onClick={(event) => {

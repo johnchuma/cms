@@ -4,13 +4,13 @@ const ValuesSection = () => {
   return (
     <div className="w-11/12 2xl:w-9/12 mx-auto py-24 text-dark ">
       {/* First Section */}
-      <div className="flex space-x-32 items-center">
-        <div className="w-6/12">
+      <div className="flex flex-col-reverse  md:flex-row space-y-4 md:space-x-32 items-center">
+        <div className="w-full md:w-6/12">
           <Image height="60000" width="60000" src="/engagement.png" />
         </div>
-        <div className="w-6/12 space-y-4">
+        <div className="w-full md:w-6/12 space-y-4">
           <h1 className=" font-medium text-muted ">Enhance Engagement</h1>
-          <h1 className="text-4xl leading-[60px] font-bold ">
+          <h1 className="text-3xl md:text-4xl leading-[45px] md:leading-[60px] font-bold ">
             Improve Church Member Engagement
           </h1>
           <p className="text-muted ">
@@ -36,12 +36,12 @@ const ValuesSection = () => {
       </div>
 
       {/* Second Section (Finance and WhatsApp Integration) */}
-      <div className="flex space-x-32 items-center mt-16">
-        <div className="w-6/12 space-y-4">
+      <div className="flex flex-col md:flex-row space-y-12 md:space-x-32 items-center mt-16">
+        <div className=" w-full md:w-6/12 space-y-4">
           <h1 className=" font-medium text-muted ">
             Financial Management & Communication
           </h1>
-          <h1 className="text-4xl leading-[60px] font-bold ">
+          <h1 className="text-3xl md:text-4xl leading-[45px] md:leading-[60px] font-bold ">
             Manage Church Finances Effortlessly
           </h1>
           <p className="text-muted ">
@@ -61,7 +61,7 @@ const ValuesSection = () => {
             time.
           </p>
         </div>
-        <div className="w-6/12">
+        <div className="w-full md:w-6/12">
           <Image height="60000" width="60000" src="/finance.png" />
         </div>
       </div>

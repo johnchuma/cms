@@ -76,7 +76,11 @@ const HorizontalBarChart = ({
               new Date().getFullYear() - 5,
               new Date().getFullYear() - 6,
             ].map((item) => {
-              return <option value={item}>{item}</option>;
+              return (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              );
             })}
           </select>
         </div>

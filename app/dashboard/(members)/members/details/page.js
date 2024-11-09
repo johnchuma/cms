@@ -66,7 +66,7 @@ const Page = () => {
             },
           ].map((item) => {
             return (
-              <div className="space-y-1 ">
+              <div key={item.title} className="space-y-1 ">
                 <h1 className="font-semibold">{item.title}</h1>
                 <p className="text-muted ">{item.value}</p>
               </div>
