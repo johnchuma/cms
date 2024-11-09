@@ -7,7 +7,7 @@ const FeatureSection = () => {
   return (
     <div
       id="features"
-      className="text-dark w-11/12 2xl:w-9/12 mx-auto py-24 border-b-2 border-border"
+      className="text-dark w-11/12 2xl:w-9/12 mx-auto py-12 md:py-24 border-b-2 border-border"
     >
       <div className="text-center space-y-2">
         <h1 className="text-3xl md:text-4xl font-bold">Software Features</h1>
@@ -44,7 +44,7 @@ const FeatureSection = () => {
               key={index}
               className="space-y-3 flex flex-col items-center text-center"
             >
-              <div className="bg-primary bg-opacity-5 text-primary text-3xl p-8 rounded-full">
+              <div className="bg-primary bg-opacity-5 text-primary text-xl md:text-3xl p-8 rounded-full">
                 {item.icon}
               </div>
               <h1 className="text-xl font-bold">{item.title}</h1>

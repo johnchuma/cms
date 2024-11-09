@@ -4,7 +4,7 @@ import { BsCheck } from "react-icons/bs";
 const GetStartedSection = () => {
   return (
     <div className="w-11/12 mx-auto 2xl:w-9/12 bg-primary text-white rounded-xl">
-      <div className=" w-11/12 md:w-4/12 2xl:w-4/12 mx-auto flex flex-col items-center py-24 space-y-3 md:space-y-6">
+      <div className=" w-11/12 md:w-4/12 2xl:w-4/12 mx-auto flex flex-col items-center py-24 space-y-4 md:space-y-6">
         <h1 className=" text-3xl md:text-4xl leading-[40px] md:leading-[60px] font-bold text-center">
           Starting with Hemani is easy, fast and free
         </h1>

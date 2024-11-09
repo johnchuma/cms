@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const ValuesSection = () => {
   return (
-    <div className="w-11/12 2xl:w-9/12 mx-auto py-24 text-dark ">
+    <div className="w-11/12 2xl:w-9/12 mx-auto py-12 md:py-24 text-dark ">
       {/* First Section */}
       <div className="flex flex-col-reverse  md:flex-row space-y-4 md:space-x-32 items-center">
-        <div className="w-full md:w-6/12">
+        <div className="w-full pt-12 md:pt-0 md:w-6/12">
           <Image height="60000" width="60000" src="/engagement3.png" />
         </div>
         <div className="w-full md:w-6/12 space-y-4">

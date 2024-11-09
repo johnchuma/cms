@@ -27,7 +27,7 @@ const HeroSection = () => {
               <div>No credit card needed, start for free</div>
             </div>
           </div>
-          <div className="hidden md:block md:col-span-6">
+          <div className="col-span-12 pt-12 md:pt-0 md:col-span-6">
             <Image height="60000" width="60000" src="/hero.png" />
           </div>
         </div>

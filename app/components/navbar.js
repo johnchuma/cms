@@ -40,7 +40,13 @@ const Navbar = () => {
                 { title: "Sign In", path: "/signin" },
               ].map((item) => {
                 return (
-                  <Link href={item.path} key={item.title}>
+                  <Link
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                    href={item.path}
+                    key={item.title}
+                  >
                     {item.title}
                   </Link>
                 );
@@ -74,7 +80,7 @@ const Navbar = () => {
             }}
             className="block md:hidden"
           >
-            <IoIosMenu className="text-2xl" />
+            <IoIosMenu className="text-3xl" />
           </div>
           <div className="hidden md:block">
             <div className="flex space-x-8 items-center font-medium">

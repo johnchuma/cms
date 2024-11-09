@@ -19,7 +19,7 @@ const Footer = () => {
 
         <div className=" col-span-4 md:col-span-2">
           <h1 className="text-lg font-bold">Product</h1>
-          <div className="flex flex-col space-y-2 mt-4">
+          <div className="flex flex-col space-y-2 mt-2 md:mt-4">
             {[
               { title: "Features", path: "#features" },
               { title: "Pricing", path: "#pricing" },
@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
         <div className=" col-span-4 md:col-span-2  ">
           <h1 className="text-lg font-bold">Legal</h1>
-          <div className="flex flex-col space-y-2 mt-4">
+          <div className="flex flex-col space-y-2 mt-2 md:mt-4">
             {[
               { title: "Terms of use", path: "#aboutus" },
               { title: "Privacy Policy", path: "#aboutus" },
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
         <div className=" col-span-4 md:col-span-2 ">
           <h1 className="text-lg font-bold">Contacts</h1>
-          <div className="flex flex-col space-y-2 mt-4">
+          <div className="flex flex-col space-y-2 mt-2 md:mt-4">
             {[
               { title: "info@hemani.io", path: "#aboutus" },
               { title: "+255627707434", path: "#aboutus" },
@@ -84,7 +84,7 @@ const Footer = () => {
           <div className="flex items-center space-x-2 w-full">
             <div className="w-8/12">
               <input
-                className="input-style mt-4"
+                className="input-style mt-2 md:mt-4"
                 placeholder="Enter your email"
               />
             </div>
