@@ -1,22 +1,16 @@
 "use client";
-import { useContext } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import moment from "moment";
 import { AiOutlineSearch } from "react-icons/ai";
 import Spinner from "@/app/components/spinner";
-import GroupActions from "@/app/components/groupActions";
-import { getGroupMembers } from "@/app/services/groupsServices";
 import { ChurchContext } from "@/app/dashboard/layout";
-import GroupLeaderActions from "@/app/components/groupLeaderActions";
-import GroupMemberActions from "@/app/components/groupMemberActions";
 import {
   getGroupProjects,
   getGroupProjectsReport,
 } from "@/app/services/projectServices";
 import ProjectActions from "@/app/components/projectActions";
 import Pagination from "@/app/components/pagination";
-import TimeseriesChart from "@/app/components/TimeseriesChart";
 import PieChart from "@/app/components/pieChart";
 
 const Page = () => {

@@ -1,12 +1,12 @@
 // components/DraftEditor.js
 "use client"; // Enforce client-side rendering
+import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
 import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
+const { Editor } = dynamic(() => import("react-draft-wysiwyg"), { ssr: false });
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const DraftEditor = ({ value, onChange }) => {
-  // Initialize editor state with content if provided
   const [editorState, setEditorState] = useState(() =>
     value
       ? EditorState.createWithContent(convertFromRaw(JSON.parse(value)))
