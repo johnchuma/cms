@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { getAccessToken } from "../utils/localStorageData";
 
 export const app = axios.create({
   baseURL: "http://localhost:5000",
@@ -13,6 +14,7 @@ export const register = async (data) => {
 export const login = async (data) => {
   return await app.post("/users/login", data);
 };
+
 export const loginWithGoogle = async (data) => {
   const provider = new GoogleAuthProvider();
   const response = await signInWithPopup(auth, provider);
@@ -28,4 +30,20 @@ export const getVerificationCode = async (data) => {
 };
 export const resetPassword = async (email, data) => {
   return await app.post(`/users/reset-password/${email}`, data);
+};
+
+export const getMyInfo = async () => {
+  return await app.get(`/users/me`, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
+};
+
+export const editUser = async (uuid, data) => {
+  return await app.patch(`/users/${uuid}`, data, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
 };

@@ -40,3 +40,11 @@ export const getChurchMembers = async (uuid) => {
     },
   });
 };
+
+export const getMemberCount = async (uuid) => {
+  return await app.get(`/members/count/church/${uuid}`, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
+};

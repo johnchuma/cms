@@ -16,3 +16,10 @@ export const addChurch = async (data) => {
     },
   });
 };
+export const editChurch = async (uuid, data) => {
+  return await app.patch(`/churches/${uuid}`, data, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
+};

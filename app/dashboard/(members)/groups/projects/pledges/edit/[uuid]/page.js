@@ -85,7 +85,7 @@ const Page = ({ params }) => {
               setUploading(false);
             });
         }}
-        className=" rounded-lg mt-4 p-8"
+        className=" rounded-lg p-8"
       >
         <div className="grid grid-cols-3 gap-6 mb-8">
           <FormField

@@ -21,6 +21,7 @@ const Page = () => {
   const [year, setYear] = useState(new Date().getFullYear());
 
   useEffect(() => {
+    setAddPath(null);
     setPageTitle("Finance Overview");
     getFinanceReport(selectedChurch.uuid, year).then((response) => {
       setData(response.data.body);
@@ -29,7 +30,7 @@ const Page = () => {
   }, [selectedChurch, year]);
 
   return (
-    <div className="bg-white p-8 rounded-lg mt-4">
+    <div className="bg-white p-8 rounded-lg">
       {loading ? (
         <Spinner />
       ) : (

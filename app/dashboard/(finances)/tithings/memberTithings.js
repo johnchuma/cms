@@ -32,7 +32,7 @@ const MemberTithings = ({ uuid }) => {
   }, [selectedChurch, membertithings, limit]);
   return (
     <div>
-      <div className=" bg-white   rounded-lg mt-4">
+      <div className=" bg-white   rounded-lg">
         {loading ? (
           <Spinner />
         ) : (

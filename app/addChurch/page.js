@@ -23,7 +23,7 @@ const Page = () => {
               height="9000"
               width="9000"
               className=" hover:scale-95 transition-all duration-300"
-              src="/login.svg"
+              src="/login.png"
             />
           </div>
         </div>

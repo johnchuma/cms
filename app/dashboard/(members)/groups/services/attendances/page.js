@@ -51,7 +51,7 @@ const Page = () => {
   }, [page, limit]);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg mt-4">
+      <div className=" bg-white  p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (

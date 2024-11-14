@@ -41,7 +41,7 @@ const MemberReports = ({ uuid }) => {
   }, [selectedChurch, page, limit]);
   return (
     <div>
-      <div className="  rounded-lg mt-4">
+      <div className="  rounded-lg">
         {loading ? (
           <Spinner />
         ) : (

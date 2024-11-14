@@ -13,6 +13,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { createContext } from "react";
 import DashboardNavbar from "../components/dashboardNavbar";
+import {
+  getSelectedChurch,
+  storeSelectedChurch,
+} from "../utils/localStorageData";
 export const ChurchContext = createContext();
 const Layout = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -32,7 +36,16 @@ const Layout = ({ children }) => {
         const churches = response.data.body;
         setChurches(churches);
         if (churches.length > 0) {
-          setSelectedChurch(churches[0]);
+          const uuid = getSelectedChurch();
+          console.log(uuid);
+          if (uuid) {
+            const church = churches.filter((e) => e.uuid == uuid)[0];
+            console.log(church);
+            setSelectedChurch(church);
+          } else {
+            setSelectedChurch(churches[0]);
+            storeSelectedChurch(churches[0].uuid);
+          }
         } else {
           router.push("/addChurch");
         }
@@ -49,14 +62,6 @@ const Layout = ({ children }) => {
   ) : (
     churches.length > 0 && (
       <div className={`${isDark ? "dark" : "light"} text-dark `}>
-        {/* <div className="bg-primary w-full py-2 shadow-lg text-center">
-          <h1 className="text-white text-sm">
-            Available messages: 230
-            <span className="bg-secondary cursor-pointer text-white text-sm p-1 rounded-lg font-bold ml-3">
-              Buy More
-            </span>
-          </h1>
-        </div> */}
         <div className="flex">
           <div className="w-[18%] 2xl:w-[14%] border-r border-border h-screen  dark:bg-dark text-dark dark:text-white transition-all   fixed  pt-4 ">
             <div className="  pb-3 mb-2">
@@ -73,6 +78,7 @@ const Layout = ({ children }) => {
                     );
                     console.log(selectedChurchObj);
                     setSelectedChurch(selectedChurchObj);
+                    storeSelectedChurch(selectedChurchObj.uuid);
                   }}
                   className="py-3 rounded-lg border font-medium text-sm border-transparent w-full bg-black focus:bg-black focus:bg-opacity-5 bg-opacity-5 dark:bg-opacity-10 focus:border-primary focus:ring-primary"
                 >
@@ -99,7 +105,7 @@ const Layout = ({ children }) => {
               pathname={addPath}
               title={pageTitle}
             />
-            <div className={`px-6 ${pathname ? "pt-12" : "pt-16"}`}>
+            <div className={`px-6 ${pathname ? "pt-20" : "pt-16"}`}>
               <ChurchContext.Provider
                 value={{ selectedChurch, setAddPath, setPageTitle }}
               >

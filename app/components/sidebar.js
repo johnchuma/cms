@@ -4,9 +4,13 @@ import {
   AiOutlineContacts,
   AiOutlineDashboard,
   AiOutlineFolder,
+  AiOutlineLogout,
   AiOutlineNotification,
+  AiOutlineSetting,
   AiOutlineUser,
 } from "react-icons/ai";
+import { RiSecurePaymentLine } from "react-icons/ri";
+import { FiMessageCircle } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import SideBarItem from "./sideBarItem";
@@ -15,6 +19,7 @@ const Sidebar = () => {
   const [showMemberItems, setShowMemberItems] = useState(false);
   const [showFinanceItems, setShowFinanceItems] = useState(false);
   const [showEventsItems, setShowEventsItems] = useState(false);
+  const [showSettingsItems, setShowSettingsItems] = useState(false);
   const pathname = usePathname();
 
   const membersItems = [
@@ -81,20 +86,47 @@ const Sidebar = () => {
       icon: <AiOutlineCalendar />,
     },
   ];
-
+  const settingsItems = [
+    {
+      title: "My Account",
+      path: "/dashboard/myAccount",
+      activeOn: ["/dashboard/myAccount"],
+      icon: <AiOutlineUser />,
+    },
+    {
+      title: "Subscription",
+      path: "/dashboard/subscription",
+      activeOn: ["/dashboard/subscription"],
+      icon: <RiSecurePaymentLine />,
+    },
+    {
+      title: "SMS Inventory",
+      path: "/dashboard/smsInventory",
+      activeOn: ["/dashboard/smsInventory"],
+      icon: <FiMessageCircle />,
+    },
+  ];
   useEffect(() => {
     if (membersItems.some((item) => item.activeOn.includes(pathname))) {
       setShowMemberItems(true);
       setShowFinanceItems(false);
       setShowEventsItems(false);
+      setShowSettingsItems(false);
     } else if (financeItems.some((item) => item.activeOn.includes(pathname))) {
       setShowFinanceItems(true);
       setShowMemberItems(false);
       setShowEventsItems(false);
+      setShowSettingsItems(false);
     } else if (eventsItems.some((item) => item.activeOn.includes(pathname))) {
       setShowEventsItems(true);
       setShowMemberItems(false);
       setShowFinanceItems(false);
+      setShowSettingsItems(false);
+    } else if (settingsItems.some((item) => item.activeOn.includes(pathname))) {
+      setShowEventsItems(false);
+      setShowMemberItems(false);
+      setShowFinanceItems(false);
+      setShowSettingsItems(true);
     }
   }, [pathname]);
 
@@ -108,6 +140,7 @@ const Sidebar = () => {
             setShowMemberItems(!showMemberItems);
             setShowFinanceItems(false);
             setShowEventsItems(false);
+            setShowSettingsItems(false);
           }}
           className="flex justify-between cursor-pointer items-center"
         >
@@ -129,6 +162,7 @@ const Sidebar = () => {
             setShowFinanceItems(!showFinanceItems);
             setShowMemberItems(false);
             setShowEventsItems(false);
+            setShowSettingsItems(false);
           }}
           className="flex justify-between cursor-pointer items-center"
         >
@@ -150,6 +184,7 @@ const Sidebar = () => {
             setShowEventsItems(!showEventsItems);
             setShowMemberItems(false);
             setShowFinanceItems(false);
+            setShowSettingsItems(false);
           }}
           className="flex justify-between cursor-pointer items-center"
         >
@@ -159,6 +194,27 @@ const Sidebar = () => {
         {showEventsItems && (
           <div className="mt-2">
             {eventsItems.map((item) => {
+              return <SideBarItem key={item.path} item={item} />;
+            })}
+          </div>
+        )}
+      </div>
+      <div className="px-6 pt-8">
+        <div
+          onClick={() => {
+            setShowSettingsItems(!showSettingsItems);
+            setShowEventsItems(false);
+            setShowMemberItems(false);
+            setShowFinanceItems(false);
+          }}
+          className="flex justify-between cursor-pointer items-center"
+        >
+          <h1 className="text-xs">SETTINGS</h1>
+          <div>{showEventsItems ? <BsChevronUp /> : <BsChevronDown />}</div>
+        </div>
+        {showSettingsItems && (
+          <div className="mt-2">
+            {settingsItems.map((item) => {
               return <SideBarItem key={item.path} item={item} />;
             })}
           </div>

@@ -33,13 +33,13 @@ const Page = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <div className="mt-4 p-6">
+    <div className=" ">
       {!data.isActive && (
         <div className="p-4 mt-6 px-6 border-2 border-red-200 bg-red-50 rounded-lg">
           This person is currently inactive as a member.
         </div>
       )}
-      <div className=" bg-background p-6 rounded-lg mt-4">
+      <div className=" bg-background p-6 rounded-lg">
         <div className="">
           <h1 className="text-lg font-bold">Primary Information</h1>
           <p className="text-sm text-muted pt-2">

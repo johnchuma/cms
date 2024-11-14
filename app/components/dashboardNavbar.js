@@ -84,6 +84,7 @@ const DashboardNavbar = ({ title, pathname, setIsDark, isDark }) => {
             <div
               onClick={() => {
                 // setShowLogoutModal(true);
+                router.push("/dashboard/myAccount");
               }}
               className={`${
                 pathname ? "size-6" : "size-12"

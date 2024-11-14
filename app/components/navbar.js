@@ -88,7 +88,7 @@ const Navbar = () => {
                 { title: "Features", path: "#features" },
                 { title: "Pricing", path: "#pricing" },
                 { title: "FAQ", path: "#FAQ" },
-                { title: "Contacts", path: "#contacts" },
+                { title: "About Us", path: "#about" },
                 { title: "Sign In", path: "/signin" },
               ].map((item) => {
                 return (

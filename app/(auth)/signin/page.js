@@ -59,6 +59,7 @@ const Page = () => {
                   .then((response) => {
                     console.log(response.data.body);
                     let token = response.data.body.tokens.ACCESS_TOKEN;
+                    storeAccessToken(token);
                     console.log("Access tokens", token);
                     router.push("/dashboard/");
                   })

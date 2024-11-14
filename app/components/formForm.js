@@ -4,13 +4,18 @@ const FormField = ({
   required,
   placeholder,
   inputType,
+  disabled,
   setValue,
   defaultValue,
+  rightContent,
   value,
 }) => {
   return (
     <div className="flex flex-col space-y-2">
-      <label className="font-semibold ">{label ?? ""}</label>
+      <div className="flex justify-between">
+        <label className="font-semibold ">{label ?? ""}</label>
+        <div>{rightContent}</div>
+      </div>
       <input
         name={name ?? ""}
         onChange={(e) => {
@@ -20,6 +25,7 @@ const FormField = ({
         }}
         defaultValue={defaultValue}
         value={value ?? null}
+        disabled={disabled ?? false}
         required={required ?? true}
         placeholder={placeholder ?? ""}
         type={inputType ?? "text"}

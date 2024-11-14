@@ -1,9 +1,9 @@
 import FAQSection from "./components/faqSection";
 import FeatureSection from "./components/featuresSection";
-import GetStartedSection from "./components/getStartedSection";
 import HeroSection from "./components/heroSection";
 import PricingSection from "./components/pricingSection";
 import ValuesSection from "./components/valuesSection";
+import AboutUs from "./components/aboutUs";
 
 const Page = () => {
   return (
@@ -15,7 +15,7 @@ const Page = () => {
       <ValuesSection />
       <PricingSection />
       <FAQSection />
-      <GetStartedSection />
+      <AboutUs />
     </div>
   );
 };

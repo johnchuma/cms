@@ -52,13 +52,7 @@ const ProjectActions = ({ uuid }) => {
       </button>
       <AnimatePresence>
         {show && (
-          <motion.div
-            animate="show"
-            initial="hidden"
-            exit="hidden"
-            variants={staggerVariants}
-            className="absolute right-0 font-semibold top-14 w-64 rounded-lg space-y-2  bg-white py-6 px-12 shadow-lg"
-          >
+          <motion.div className="absolute right-0 font-semibold top-14 w-64 rounded-lg space-y-2  bg-white py-6 px-12 shadow-lg">
             {[
               {
                 title: "Pledges",
