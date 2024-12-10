@@ -6,6 +6,7 @@ import {
   AiOutlineFolder,
   AiOutlineLogout,
   AiOutlineNotification,
+  AiOutlinePlus,
   AiOutlineSetting,
   AiOutlineUser,
 } from "react-icons/ai";
@@ -14,8 +15,15 @@ import { FiMessageCircle } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import SideBarItem from "./sideBarItem";
+import { storeSelectedChurch } from "../utils/localStorageData";
+import Link from "next/link";
 
-const Sidebar = () => {
+const Sidebar = ({
+  churches,
+  selectedChurch,
+  setSelectedChurch,
+  setShowMenu,
+}) => {
   const [showMemberItems, setShowMemberItems] = useState(false);
   const [showFinanceItems, setShowFinanceItems] = useState(false);
   const [showEventsItems, setShowEventsItems] = useState(false);
@@ -133,7 +141,37 @@ const Sidebar = () => {
   return (
     <div>
       <div className="bg-black inset-0"></div>
+      <div className="  pb-3 mb-2">
+        <Link href="/" className="px-6 text-xl md:text-2xl font-bold">
+          Hemani
+        </Link>
+        <div className="w-10/12 mx-auto flex items-center space-x-2 mt-6 md:mt-12">
+          <select
+            defaultValue={selectedChurch?.uuid}
+            onChange={(e) => {
+              const selectedChurchUuid = e.target.value;
+              const selectedChurchObj = churches.find(
+                (church) => church.uuid === selectedChurchUuid
+              );
+              console.log(selectedChurchObj);
+              setSelectedChurch(selectedChurchObj);
+              storeSelectedChurch(selectedChurchObj.uuid);
+            }}
+            className="py-3 rounded-lg border font-medium text-sm border-transparent w-full bg-black focus:bg-black focus:bg-opacity-5 bg-opacity-5 dark:bg-opacity-10 focus:border-primary focus:ring-primary"
+          >
+            <option>Select church</option>
+            {churches.map((item) => (
+              <option key={item.uuid} value={item.uuid}>
+                {item.name}
+              </option>
+            ))}
+          </select>
 
+          <Link href="/addChurch" className="cursor-pointer">
+            <AiOutlinePlus title="Add New Church" />
+          </Link>
+        </div>
+      </div>
       <div className="px-6 pt-3">
         <div
           onClick={() => {
@@ -150,7 +188,15 @@ const Sidebar = () => {
         {showMemberItems && (
           <div className="mt-3">
             {membersItems.map((item) => {
-              return <SideBarItem key={item.path} item={item} />;
+              return (
+                <SideBarItem
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                  key={item.path}
+                  item={item}
+                />
+              );
             })}
           </div>
         )}
@@ -172,7 +218,15 @@ const Sidebar = () => {
         {showFinanceItems && (
           <div className="mt-3">
             {financeItems.map((item) => {
-              return <SideBarItem key={item.path} item={item} />;
+              return (
+                <SideBarItem
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                  key={item.path}
+                  item={item}
+                />
+              );
             })}
           </div>
         )}
@@ -194,7 +248,15 @@ const Sidebar = () => {
         {showEventsItems && (
           <div className="mt-2">
             {eventsItems.map((item) => {
-              return <SideBarItem key={item.path} item={item} />;
+              return (
+                <SideBarItem
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                  key={item.path}
+                  item={item}
+                />
+              );
             })}
           </div>
         )}
@@ -215,7 +277,15 @@ const Sidebar = () => {
         {showSettingsItems && (
           <div className="mt-2">
             {settingsItems.map((item) => {
-              return <SideBarItem key={item.path} item={item} />;
+              return (
+                <SideBarItem
+                  onClick={() => {
+                    setShowMenu(false);
+                  }}
+                  key={item.path}
+                  item={item}
+                />
+              );
             })}
           </div>
         )}

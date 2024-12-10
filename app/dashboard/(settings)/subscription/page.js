@@ -67,7 +67,7 @@ const Page = () => {
                   className="shadow-lg p-12 space-y-4 rounded-lg"
                 >
                   <h1 className="text-lg">{item.members} Members</h1>
-                  <h1 className="text-2xl font-bold">
+                  <h1 className="text-xl md:text-2xl font-bold">
                     {item.price} TSH
                     <span className="text-lg font-medium text-muted">
                       {" "}

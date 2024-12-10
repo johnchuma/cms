@@ -14,7 +14,7 @@ const Footer = () => {
     <div id="contacts">
       <div className="grid grid-cols-12   w-11/12 2xl:w-9/12 mx-auto py-12 md:py-24 text-dark">
         <div className="  col-span-12 md:col-span-3 pb-6 md:py-0">
-          <h1 className="text-2xl font-bold ">Hemani</h1>
+          <h1 className="text-xl md:text-2xl font-bold ">Hemani</h1>
         </div>
 
         <div className=" col-span-4 md:col-span-2">
@@ -100,7 +100,7 @@ const Footer = () => {
         <h1 className="">
           © {new Date().getFullYear()} Hemani. All Rights Reserved
         </h1>
-        <div className="flex items-center justify-center md:justify-start space-x-4 text-2xl text-muted text-opacity-70">
+        <div className="flex items-center justify-center md:justify-start space-x-4 text-xl md:text-2xl text-muted text-opacity-70">
           {[
             { icon: <FaFacebook />, href: "" },
             { icon: <FaInstagramSquare />, href: "" },

@@ -22,8 +22,8 @@ const PieChart = ({ title, description, labels, values }) => {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 h-full">
-      <h1 className="text-xl font-bold">{title ?? ""}</h1>
+    <div className="bg-white shadow rounded-lg p-4 md:p-6 h-full">
+      <h1 className="text-lg md:text-xl font-bold">{title ?? ""}</h1>
       <p className="text-muted text-sm pt-1 mb-3">{description ?? ""}</p>
       <Chart type="donut" options={config.options} series={config.series} />
     </div>

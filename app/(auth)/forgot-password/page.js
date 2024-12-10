@@ -15,8 +15,8 @@ const Page = () => {
   return (
     <div className="bg-white w-screen h-screen text-dark ">
       <div className="grid grid-cols-12">
-        <div className="col-span-5 bg-primary h-screen "></div>
-        <div className="col-span-7 px-24 min-h-screen flex flex-col justify-center">
+        <div className="col-span-5 hidden md:block bg-primary h-screen "></div>
+        <div className=" col-span-12 md:col-span-7 px-5 md:px-24 min-h-screen flex flex-col justify-center">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -35,7 +35,7 @@ const Page = () => {
                   }
                 });
             }}
-            className="w-9/12 2xl:w-6/12 mx-auto space-y-4"
+            className="w-11/12 md:w-9/12 2xl:w-6/12 mx-auto space-y-4"
           >
             <h1 className="text-3xl font-semibold">Forgot Password ?</h1>
             <p className="text-muted">

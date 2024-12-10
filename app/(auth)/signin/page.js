@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <div className="bg-white w-screen h-screen text-dark ">
       <div className="grid grid-cols-12">
-        <div className="col-span-6 bg-primary h-screen flex flex-col justify-center">
+        <div className="col-span-12 md:col-span-6   bg-primary h-screen hidden md:flex flex-col justify-center">
           <div className="w-8/12 mx-auto">
             <Image
               height="9000"
@@ -26,7 +26,7 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className="col-span-6 px-24 min-h-screen flex flex-col justify-center">
+        <div className="col-span-12 md:col-span-6 px-4 md:px-24 min-h-screen flex flex-col justify-center">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -48,9 +48,9 @@ const Page = () => {
                   toast.error(e.response.data.message);
                 });
             }}
-            className="w-9/12 2xl:w-6/12 mx-auto space-y-4"
+            className="w-11/12 md:w-9/12 2xl:w-6/12 mx-auto space-y-4"
           >
-            <h1 className="font-semibold text-3xl">Sign In</h1>
+            <h1 className="font-semibold text-3xl ">Sign In</h1>
 
             <button
               onClick={(event) => {
@@ -73,10 +73,10 @@ const Page = () => {
               <FcGoogle className="text-xl" />
               <h1>Sign in with google</h1>
             </button>
-            <div className="flex items-center">
-              <div className="h-1 w-full bg-gray-200" />
-              <h1 className="text-muted w-full text-center">Or sign In with</h1>
-              <div className="h-1 w-full bg-gray-200" />
+            <div className="flex items-center space-x-2">
+              <div className="h-1 grow bg-gray-200" />
+              <h1 className="text-muted  text-center">Or sign In with</h1>
+              <div className="h-1 grow bg-gray-200" />
             </div>
             <FormField
               placeholder={"Enter email address"}

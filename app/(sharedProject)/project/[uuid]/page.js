@@ -51,7 +51,9 @@ const Page = ({ params }) => {
         <div className="bg-black h-36 bg-opacity-30 py-6 text-white">
           <div className="w-11/12 2xl:w-9/12 mx-auto  px-10 flex justify-between items-start ">
             <div>
-              <h1 className="text-2xl font-bold mb-2">{data.name}</h1>
+              <h1 className="text-xl md:text-2xl font-bold mb-2">
+                {data.name}
+              </h1>
               <p className="text-opacity-70 text-white  text-sm"></p>
               <div className="flex space-x-4">
                 <div className="text-opacity-80 text-white  cursor-pointer text-sm flex items-center space-x-1">

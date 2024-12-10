@@ -2,7 +2,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const SideBarItem = ({ item }) => {
+const SideBarItem = ({ item, onClick }) => {
   const pathname = usePathname();
   const [paths, setPaths] = useState([]);
   useEffect(() => {
@@ -11,6 +11,9 @@ const SideBarItem = ({ item }) => {
 
   return (
     <Link
+      onClick={() => {
+        onClick();
+      }}
       className={`flex items-center space-x-2 py-3 px-3 font-medium rounded-lg ${
         item.activeOn.includes(pathname)
           ? "bg-primary text-white"

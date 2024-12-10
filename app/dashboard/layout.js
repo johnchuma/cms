@@ -21,6 +21,7 @@ export const ChurchContext = createContext();
 const Layout = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [selectedChurch, setSelectedChurch] = useState(null);
   const [addPath, setAddPath] = useState(null);
   const [pageTitle, setPageTitle] = useState("");
@@ -62,44 +63,37 @@ const Layout = ({ children }) => {
   ) : (
     churches.length > 0 && (
       <div className={`${isDark ? "dark" : "light"} text-dark `}>
-        <div className="flex">
-          <div className="w-[18%] 2xl:w-[14%] border-r border-border h-screen  dark:bg-dark text-dark dark:text-white transition-all   fixed  pt-4 ">
-            <div className="  pb-3 mb-2">
-              <Link href="/" className="px-6 text-2xl font-bold">
-                Hemani
-              </Link>
-              <div className="w-10/12 mx-auto flex items-center space-x-2 mt-12">
-                <select
-                  defaultValue={selectedChurch?.uuid}
-                  onChange={(e) => {
-                    const selectedChurchUuid = e.target.value;
-                    const selectedChurchObj = churches.find(
-                      (church) => church.uuid === selectedChurchUuid
-                    );
-                    console.log(selectedChurchObj);
-                    setSelectedChurch(selectedChurchObj);
-                    storeSelectedChurch(selectedChurchObj.uuid);
-                  }}
-                  className="py-3 rounded-lg border font-medium text-sm border-transparent w-full bg-black focus:bg-black focus:bg-opacity-5 bg-opacity-5 dark:bg-opacity-10 focus:border-primary focus:ring-primary"
-                >
-                  <option>Select church</option>
-                  {churches.map((item) => (
-                    <option key={item.uuid} value={item.uuid}>
-                      {item.name}
-                    </option>
-                  ))}
-                </select>
-
-                <Link href="/addChurch" className="cursor-pointer">
-                  <AiOutlinePlus title="Add New Church" />
-                </Link>
-              </div>
+        {showMenu && (
+          <div
+            onClick={() => setShowMenu(false)}
+            className=" inset-0 bg-black bg-opacity-20  fixed z-50"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="w-8/12 bg-white pt-4 h-screen"
+            >
+              <Sidebar
+                churches={churches}
+                setShowMenu={setShowMenu}
+                selectedChurch={selectedChurch}
+                setSelectedChurch={setSelectedChurch}
+              />
             </div>
-
-            <Sidebar />
           </div>
-          <div className=" w-[82%]  2xl:w-[86%] ms-auto   min-h-screen bg-white">
+        )}
+        <div className="flex">
+          <div className="w-[18%] 2xl:w-[14%] hidden md:block border-r border-border h-screen  dark:bg-dark text-dark dark:text-white transition-all   fixed  pt-4 ">
+            <Sidebar
+              churches={churches}
+              setShowMenu={setShowMenu}
+              selectedChurch={selectedChurch}
+              setSelectedChurch={setSelectedChurch}
+            />
+          </div>
+          <div className=" w-full md:w-[82%]  2xl:w-[86%] ms-auto   min-h-screen bg-white">
             <DashboardNavbar
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
               isDark={isDark}
               setIsDark={setIsDark}
               pathname={addPath}

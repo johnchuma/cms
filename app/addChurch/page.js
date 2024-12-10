@@ -17,7 +17,7 @@ const Page = () => {
   return (
     <div className="bg-white w-screen h-screen text-dark ">
       <div className="grid grid-cols-12">
-        <div className="col-span-6 bg-primary h-screen flex flex-col justify-center">
+        <div className="col-span-6 bg-primary h-screen hidden md:flex flex-col justify-center">
           <div className="w-8/12 mx-auto">
             <Image
               height="9000"
@@ -27,7 +27,7 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className="col-span-6 px-24 min-h-screen flex flex-col justify-center">
+        <div className=" col-span-12 md:col-span-6 px-4 md:px-24 min-h-screen flex flex-col justify-center">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -47,7 +47,7 @@ const Page = () => {
                   console.log(e);
                 });
             }}
-            className="w-9/12 2xl:w-6/12 mx-auto space-y-4"
+            className="w-11/12 md:w-9/12 2xl:w-6/12 mx-auto space-y-4"
           >
             <div className="space-y-2 ">
               <h1 className="font-semibold text-3xl">Register a Church</h1>

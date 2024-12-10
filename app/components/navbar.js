@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="bg-black inset-0 fixed z-50 bg-opacity-10">
           <div className="w-8/12 h-screen bg-white p-5">
             <div className="flex  justify-between mt-4 items-center">
-              <h1 className="text-2xl font-bold ">Menu</h1>
+              <h1 className="text-xl md:text-2xl font-bold ">Menu</h1>
               <AiOutlineClose
                 className="mt-2"
                 onClick={() => {
@@ -73,7 +73,7 @@ const Navbar = () => {
         }   font-normal fixed w-full transition-all duration-500`}
       >
         <div className="flex justify-between items-center w-10/12 2xl:w-8/12 mx-auto ">
-          <h1 className="text-2xl font-bold">Hemani</h1>
+          <h1 className="text-xl md:text-2xl font-bold">Hemani</h1>
           <div
             onClick={() => {
               setShowMenu(true);

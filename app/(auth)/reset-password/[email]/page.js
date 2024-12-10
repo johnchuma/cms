@@ -23,8 +23,8 @@ const Page = ({ params }) => {
   return (
     <div className="bg-white w-screen h-screen text-dark ">
       <div className="grid grid-cols-12">
-        <div className="col-span-5 bg-primary h-screen"></div>
-        <div className="col-span-7 px-24 min-h-screen flex flex-col justify-center">
+        <div className=" col-span-5 hidden md:block bg-primary h-screen"></div>
+        <div className=" col-span-12 md:col-span-7 px-4 md:px-24 min-h-screen flex flex-col justify-center">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -51,21 +51,21 @@ const Page = ({ params }) => {
                 toast.error("Passwords doesn't match");
               }
             }}
-            className="w-9/12 2xl:w-6/12 mx-auto space-y-4"
+            className=" w-11/12 md:w-9/12 2xl:w-6/12 mx-auto space-y-4"
           >
-            <div className="bg-green-400 bg-opacity-10 rounded-lg w-full p-4">
-              <div className="flex space-x-3 font-medium items-center">
-                <div>
-                  {" "}
-                  <h1>Please check your email for the recovery code.</h1>
-                </div>
-              </div>
-            </div>
             <div>
               <h1 className="text-3xl font-semibold">Reset password </h1>
               <p className="text-muted mt-1">
                 Fill the form below to recover your password
               </p>
+            </div>
+            <div className="bg-green-400 bg-opacity-10 rounded-lg w-full p-4">
+              <div className="flex space-x-3 font-medium text-sm items-center">
+                <div>
+                  {" "}
+                  <h1>Please check your email for the recovery code.</h1>
+                </div>
+              </div>
             </div>
             <FormField
               placeholder={"Enter verification code"}

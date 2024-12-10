@@ -46,10 +46,10 @@ const BarChart = ({
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6">
+    <div className="bg-white shadow rounded-lg p-4 md:p-6">
       <div className="flex justify-between items-start">
         <div>
-          <h1 className="text-xl font-bold">{title ?? ""}</h1>
+          <h1 className="text-lg 2xl:text-xl font-bold">{title ?? ""}</h1>
           <p className="text-muted text-sm pt-1">{description ?? ""}</p>
         </div>
         <div>

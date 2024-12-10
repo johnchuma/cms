@@ -37,12 +37,12 @@ const Page = () => {
   }, [selectedChurch, limit, page, keyword, group]);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  p-0 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
           <div className="">
-            <div className="flex justify-between mb-4 space-x-2 ">
+            <div className="flex flex-col md:flex-row justify-between mb-4 space-y-2 md:space-x-2 ">
               <div className="flex space-x-2 items-center">
                 <AiOutlineSearch className="text-lg" />
                 <input
@@ -85,55 +85,57 @@ const Page = () => {
                 )}
               </div>
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="text-start py-2 px-4">Name</th>
-                  <th className="text-start py-2 px-4">Gender</th>
-                  <th className="text-start py-2 px-4">Age</th>
-                  <th className="text-start py-2 px-4">Address</th>
-                  <th className="text-start py-2 px-4">Is baptised</th>
-                  <th className="text-start py-2 px-4">Is Married</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr
-                      key={item.uuid}
-                      className={`even:bg-background ${!item.isActive && ""}`}
-                    >
-                      <td className="px-4 py-4">
-                        <input
-                          onClick={() => {
-                            // alert(value);
-                            if (selectedMembers.includes(item.uuid)) {
-                              setSelectedMembers([]);
-                            } else {
-                              setSelectedMembers([item.uuid]);
-                            }
-                          }}
-                          checked={selectedMembers.includes(item.uuid)}
-                          className="checkbox-style"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td className="py-4 px-4">{item.name}</td>
-                      <td className="py-4 px-4">{item.gender}</td>
-                      <td className="py-4 px-4">
-                        {moment(new Date(item.birthDate)).fromNow(true)}{" "}
-                      </td>
-                      <td className="py-4 px-4">{item.address}</td>
-                      <td className="py-4 px-4">
-                        {item.isBaptized ? "Yes" : "No"}
-                      </td>
-                      <td className="py-4 px-4">{item.maritalStatus}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="relative overflow-x-auto">
+              <table className="w-full table-auto ">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th className="text-start py-2 px-4">Name</th>
+                    <th className="text-start py-2 px-4">Gender</th>
+                    <th className="text-start py-2 px-4">Age</th>
+                    <th className="text-start py-2 px-4">Address</th>
+                    <th className="text-start py-2 px-4 grow">Is baptised</th>
+                    <th className="text-start py-2 px-4 grow">Is Married</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr
+                        key={item.uuid}
+                        className={`even:bg-background ${!item.isActive && ""}`}
+                      >
+                        <td className="px-4 py-4">
+                          <input
+                            onClick={() => {
+                              // alert(value);
+                              if (selectedMembers.includes(item.uuid)) {
+                                setSelectedMembers([]);
+                              } else {
+                                setSelectedMembers([item.uuid]);
+                              }
+                            }}
+                            checked={selectedMembers.includes(item.uuid)}
+                            className="checkbox-style"
+                            type="checkbox"
+                          />
+                        </td>
+                        <td className="py-4 px-4">{item.name}</td>
+                        <td className="py-4 px-4">{item.gender}</td>
+                        <td className="py-4 px-4">
+                          {moment(new Date(item.birthDate)).fromNow(true)}{" "}
+                        </td>
+                        <td className="py-4 px-4">{item.address}</td>
+                        <td className="py-4 px-4">
+                          {item.isBaptized ? "Yes" : "No"}
+                        </td>
+                        <td className="py-4 px-4">{item.maritalStatus}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               count={count}

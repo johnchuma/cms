@@ -27,12 +27,12 @@ const Page = () => {
   }, [selectedChurch, year]);
 
   return (
-    <div className="bg-white p-8 rounded-lg">
+    <div className="bg-white p-0 md:p-8 rounded-lg">
       {loading ? (
         <Spinner />
       ) : (
         <div className="space-y-6">
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               {
                 title: "Total Members",
@@ -82,8 +82,8 @@ const Page = () => {
               </div>
             ))}
           </div>
-          <div className="flex mt-8 space-x-6 items-stretch">
-            <div className="w-7/12 ">
+          <div className="flex flex-col md:flex-row mt-8 space-y-4 md:space-x-6 items-stretch">
+            <div className="w-full md:w-7/12 ">
               <LineChart
                 xaxis={Object.keys(data.membersIncrease)}
                 setYear={setYear}
@@ -92,7 +92,7 @@ const Page = () => {
                 description={"Tracking member growth month by month."}
               />
             </div>
-            <div className="w-5/12 ">
+            <div className="w-full md:w-5/12 ">
               <PieChart
                 title={"Membership Distribution by Gender"}
                 description={
@@ -103,8 +103,8 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="flex mt-8 space-x-6 items-stretch">
-            <div className="w-6/12 ">
+          <div className="flex flex-col space-y-4 md:flex-row mt-8 md:space-x-6 items-stretch">
+            <div className=" w-full md:w-6/12 ">
               <BarChart
                 xaxis={Object.keys(data.sicknessReports)}
                 setYear={setYear}
@@ -113,7 +113,7 @@ const Page = () => {
                 description={"Number of sick individuals reported each month."}
               />
             </div>
-            <div className="w-6/12 ">
+            <div className="w-full md:w-6/12 ">
               <BarChart
                 xaxis={Object.keys(data.traveledReports)}
                 setYear={setYear}

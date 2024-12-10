@@ -23,7 +23,7 @@ const HeroSection = () => {
               </Link>
             </button>
             <div className="flex space-x-2 items-center texxt-base">
-              <BsCheck className="text-2xl" />
+              <BsCheck className="text-xl md:text-2xl" />
               <div>No credit card needed, start for free</div>
             </div>
           </div>
