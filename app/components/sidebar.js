@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import SideBarItem from "./sideBarItem";
 import { storeSelectedChurch } from "../utils/localStorageData";
 import Link from "next/link";
+import { IoMdImages } from "react-icons/io";
 
 const Sidebar = ({
   churches,
@@ -92,6 +93,12 @@ const Sidebar = ({
       path: "/dashboard/calender",
       activeOn: ["/dashboard/calender"],
       icon: <AiOutlineCalendar />,
+    },
+    {
+      title: "Posters",
+      path: "/dashboard/posters",
+      activeOn: ["/dashboard/posters", "/dashboard/posters/add"],
+      icon: <IoMdImages />,
     },
   ];
   const settingsItems = [

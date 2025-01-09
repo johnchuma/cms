@@ -7,6 +7,8 @@ import { getChurchCalenders } from "@/app/services/groupCalenderServices";
 import { AiOutlineCalendar } from "react-icons/ai";
 import moment from "moment";
 import Pagination from "@/app/components/pagination";
+import { FaBoxOpen } from "react-icons/fa";
+import NoData from "@/app/components/noData";
 
 const Page = () => {
   const { selectedChurch, setPageTitle, setAddPath } =
@@ -20,6 +22,7 @@ const Page = () => {
   const [selectedEvents, setSelectedEvents] = useState([]);
   useEffect(() => {
     setPageTitle("Calendar");
+    setAddPath(null);
     const path = `${selectedChurch.uuid}/?limit=${limit}&page=${page}&filter=${
       selectTab === 0 ? "All" : "This Month"
     }`;
@@ -33,7 +36,7 @@ const Page = () => {
 
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -60,7 +63,9 @@ const Page = () => {
                     })}
                   </div>
                 </div>
-
+                {data.length < 1 && (
+                  <NoData message={"No any uploaded events "} />
+                )}
                 <div className="space-y-3 mt-8">
                   {data.map((item) => {
                     return (

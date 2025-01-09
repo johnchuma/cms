@@ -45,12 +45,14 @@ const Page = () => {
     <Spinner />
   ) : (
     <div>
-      <div className=" p-6 border border-slate-100  rounded-lg">
-        <h1 className="font-bold text-lg">Current subscription plan</h1>
-        <p className="text-sm text-muted mb-8">
-          This is current subscription plan
-        </p>
-        <div className="grid grid-cols-3 gap-6 ">
+      <div className="  border border-slate-100  rounded-lg">
+        <div className="px-6 pt-6">
+          <h1 className="font-bold text-lg">Current subscription plan</h1>
+          <p className="text-sm text-muted mb-8">
+            This is current subscription plan
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
           {[
             { price: "50,000", members: "1-200", isSelected: count <= 200 },
             {

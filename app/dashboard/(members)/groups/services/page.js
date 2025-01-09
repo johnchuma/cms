@@ -49,7 +49,7 @@ const Page = () => {
           Add Group
         </Link>
       </div> */}
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -66,46 +66,46 @@ const Page = () => {
                 <ServicesActions uuid={selectedGroups[0]} />
               )}
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="text-start py-2 px-4">Service</th>
-                  <th className="text-start py-2 px-4">Repetition</th>
-                  <th className="text-start py-2 px-4">Description</th>
-                  <th className="text-start py-2 px-4">Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="px-4 py-4">
-                        <input
-                          onClick={() => {
-                            // alert(value);
-                            if (selectedGroups.includes(item.uuid)) {
-                              setSelectedGroups([]);
-                            } else {
-                              setSelectedGroups([item.uuid]);
-                            }
-                          }}
-                          checked={selectedGroups.includes(item.uuid)}
-                          className="checkbox-style"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td className="py-4 px-4">{item.name}</td>
-                      <td className="py-4 px-4">{item.repetition}</td>
-                      <td className="py-4 px-4">{item.description}</td>
-                      <td className="py-4 px-4">
-                        {moment(item.date).format("yyy, MMM DD")}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="relative overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Service</th>
+                    <th>Repetition</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr key={item.uuid} className=" even:bg-background ">
+                        <td className="px-4 py-4">
+                          <input
+                            onClick={() => {
+                              // alert(value);
+                              if (selectedGroups.includes(item.uuid)) {
+                                setSelectedGroups([]);
+                              } else {
+                                setSelectedGroups([item.uuid]);
+                              }
+                            }}
+                            checked={selectedGroups.includes(item.uuid)}
+                            className="checkbox-style"
+                            type="checkbox"
+                          />
+                        </td>
+                        <td>{item.name}</td>
+                        <td>{item.repetition}</td>
+                        <td>{item.description}</td>
+                        <td>{moment(item.date).format("yyy, MMM DD")}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               count={count}

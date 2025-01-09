@@ -12,7 +12,7 @@ const FormField = ({
 }) => {
   return (
     <div className="flex flex-col space-y-2">
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between">
         <label className="font-semibold ">{label ?? ""}</label>
         <div>{rightContent}</div>
       </div>

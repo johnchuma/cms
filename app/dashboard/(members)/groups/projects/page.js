@@ -47,7 +47,7 @@ const Page = () => {
   }, []);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -65,47 +65,50 @@ const Page = () => {
                   <ProjectActions uuid={selectedGroups[0]} />
                 )}
               </div>
-              <table className="w-full">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th className="text-start py-2 px-4">Created At</th>
-                    <th className="text-start py-2 px-4">Title</th>
-                    <th className="text-start py-2 px-4">Pledges</th>
-                    <th className="text-start py-2 px-4">Contributions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item) => {
-                    return (
-                      <tr key={item.uuid} className=" even:bg-background ">
-                        <td className="px-4 py-4">
-                          <input
-                            onClick={() => {
-                              // alert(value);
-                              if (selectedGroups.includes(item.uuid)) {
-                                setSelectedGroups([]);
-                              } else {
-                                setSelectedGroups([item.uuid]);
-                              }
-                            }}
-                            checked={selectedGroups.includes(item.uuid)}
-                            className="checkbox-style"
-                            type="checkbox"
-                          />
-                        </td>
-                        <td className="py-4 px-4">
-                          {moment(item.createdAt).format("yyy, MMM DD")}
-                        </td>
+              <div className="relative overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Created At</th>
+                      <th>Title</th>
+                      <th>Pledges</th>
+                      <th>Contributions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => {
+                      return (
+                        <tr key={item.uuid} className=" even:bg-background ">
+                          <td className="px-4 py-4">
+                            <input
+                              onClick={() => {
+                                // alert(value);
+                                if (selectedGroups.includes(item.uuid)) {
+                                  setSelectedGroups([]);
+                                } else {
+                                  setSelectedGroups([item.uuid]);
+                                }
+                              }}
+                              checked={selectedGroups.includes(item.uuid)}
+                              className="checkbox-style"
+                              type="checkbox"
+                            />
+                          </td>
+                          <td>
+                            {moment(item.createdAt).format("yyy, MMM DD")}
+                          </td>
 
-                        <td className="py-4 px-4">{item.name}</td>
-                        <td className="py-4 px-4">{item.pledges} TZS</td>
-                        <td className="py-4 px-4">{item.contributions} TZS</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                          <td>{item.name}</td>
+                          <td>{item.pledges} TZS</td>
+                          <td>{item.contributions} TZS</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
               <Pagination
                 limit={limit}
                 count={count}
@@ -114,7 +117,7 @@ const Page = () => {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-6 mt-12">
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
               <div className="">
                 <PieChart
                   title={"Pledges Comparison Between Projects"}

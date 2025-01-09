@@ -55,36 +55,38 @@ const MemberReports = ({ uuid }) => {
                 />
               </div>
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th className="text-start py-2 px-4">Report Type</th>
-                  <th className="text-start py-2 px-4">description</th>
-                  <th className="text-start py-2 px-4">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="py-4 px-4">{item.type}</td>
-                      <td className="py-4 px-4 line-clamp-1">
-                        {item.description}
-                      </td>
-                      <td className="py-4 px-4">
-                        <div
-                          className={`${
-                            item.isActive ? "bg-green-100" : "bg-gray-100"
-                          } text-center py-1 rounded-lg `}
-                        >
-                          {item.isActive ? "Active" : "Not Active"}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="relative overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th>Report Type</th>
+                    <th>description</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr key={item.uuid} className=" even:bg-background ">
+                        <td>{item.type}</td>
+                        <td className="py-4 px-4 line-clamp-1">
+                          {item.description}
+                        </td>
+                        <td>
+                          <div
+                            className={`${
+                              item.isActive ? "bg-green-100" : "bg-gray-100"
+                            } text-center py-1 rounded-lg `}
+                          >
+                            {item.isActive ? "Active" : "Not Active"}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               count={count}

@@ -46,7 +46,7 @@ const Page = () => {
                 count: e.target.count.value,
               };
             }}
-            className="w-6/12 2xl:w-4/12  space-y-4"
+            className="md:w-6/12 2xl:w-4/12  space-y-4"
           >
             <FormField
               label={"Messages Count"}

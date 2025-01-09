@@ -57,7 +57,7 @@ const GroupLeaderActions = ({ uuid }) => {
             initial="hidden"
             exit="hidden"
             variants={staggerVariants}
-            className="absolute right-0 font-semibold top-14 w-64 rounded-lg space-y-2  bg-white py-6 px-12 shadow-lg"
+            className="absolute right-0 z-50 font-semibold top-14 w-64 rounded-lg space-y-2  bg-white py-6 px-12 shadow-lg"
           >
             {[
               {

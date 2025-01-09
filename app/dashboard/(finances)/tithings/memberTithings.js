@@ -49,31 +49,31 @@ const MemberTithings = ({ uuid }) => {
                 <TithingsActions uuid={selectedGroups[0]} />
               )} */}
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  {/* <th></th> */}
-                  <th className="text-start py-2 px-4">Recorded At</th>
-                  <th className="text-start py-2 px-4">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr
-                      key={item.uuid}
-                      className=" even:bg-background rounded-lg   "
-                    >
-                      <td className="py-4 px-4">
-                        {moment(item.createdAt).format("yyy, MMM DD")}
-                      </td>
+            <div className="relative overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    {/* <th></th> */}
+                    <th>Recorded At</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr
+                        key={item.uuid}
+                        className=" even:bg-background rounded-lg   "
+                      >
+                        <td>{moment(item.createdAt).format("yyy, MMM DD")}</td>
 
-                      <td className="py-4 px-4">{item.amount} TZS</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        <td>{item.amount} TZS</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               page={page}

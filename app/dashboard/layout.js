@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       });
   }, []);
   return loading ? (
-    <div className="flex h-screen items-center justify-center bg-background">
+    <div className="flex h-[80vh] items-center justify-center ">
       <div className=" size-24 border-4 rounded-full border-primary border-b-transparent animate-spin " />
     </div>
   ) : (
@@ -99,7 +99,11 @@ const Layout = ({ children }) => {
               pathname={addPath}
               title={pageTitle}
             />
-            <div className={`px-6 ${pathname ? "pt-20" : "pt-16"}`}>
+            <div
+              className={`px-6 ${
+                pathname ? "pt-24 md:pt-20" : " pt-16 md:pt-16"
+              }`}
+            >
               <ChurchContext.Provider
                 value={{ selectedChurch, setAddPath, setPageTitle }}
               >

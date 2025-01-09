@@ -1,10 +1,10 @@
 const Pagination = ({ page, limit, count, setPage }) => {
   return (
-    <div className="flex flex-col md:flex-row justify-between space-y-2 md:items-center pt-4">
+    <div className="flex flex-row justify-between space-y-2 md:items-center pt-4 items-center">
       {/* Showing results */}
       <div className="flex space-x-2 text-muted">
-        Showing {(page - 1) * limit + 1} to {Math.min(page * limit, count)} of{" "}
-        {count} results
+        {(page - 1) * limit + 1} to {Math.min(page * limit, count)} of {count}{" "}
+        results
       </div>
 
       {/* Pagination controls */}

@@ -66,7 +66,7 @@ const Page = ({ params }) => {
               console.log(e);
             });
         }}
-        className=" rounded-lg p-8"
+        className=" rounded-lg pb-12 md:p-8"
       >
         <div className="grid grid-cols-2 gap-6 mb-8">
           {/* {byGroup} */}

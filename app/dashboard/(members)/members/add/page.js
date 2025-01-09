@@ -53,9 +53,9 @@ const Page = () => {
               setUploading(false);
             });
         }}
-        className=" rounded-lg mt-4 p-8"
+        className=" rounded-lg mt-4 pb-12 md:p-8"
       >
-        <div className="grid grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           <FormField
             placeholder={"Enter member's name"}
             name={"name"}

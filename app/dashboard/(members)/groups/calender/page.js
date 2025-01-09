@@ -36,7 +36,7 @@ const Page = () => {
   }, [page, limit]);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -53,53 +53,49 @@ const Page = () => {
                 <GroupCalenderActions uuid={selectedGroups[0]} />
               )}
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="text-start py-2 px-4">Date</th>
-                  <th className="text-start py-2 px-4">Title</th>
-                  <th className="text-start py-2 px-4">From</th>
-                  <th className="text-start py-2 px-4">To</th>
-                  <th className="text-start py-2 px-4">Repetition</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="py-4 px-4">
-                        <input
-                          onClick={() => {
-                            // alert(value);
-                            if (selectedGroups.includes(item.uuid)) {
-                              setSelectedGroups([]);
-                            } else {
-                              setSelectedGroups([item.uuid]);
-                            }
-                          }}
-                          checked={selectedGroups.includes(item.uuid)}
-                          className="checkbox-style"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td className="py-4 px-4">
-                        {moment(item.createdAt).format("yyy, MMM DD")}
-                      </td>
+            <div className="relative overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Repetition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr key={item.uuid} className=" even:bg-background ">
+                        <td>
+                          <input
+                            onClick={() => {
+                              // alert(value);
+                              if (selectedGroups.includes(item.uuid)) {
+                                setSelectedGroups([]);
+                              } else {
+                                setSelectedGroups([item.uuid]);
+                              }
+                            }}
+                            checked={selectedGroups.includes(item.uuid)}
+                            className="checkbox-style"
+                            type="checkbox"
+                          />
+                        </td>
+                        <td>{moment(item.createdAt).format("yyy, MMM DD")}</td>
 
-                      <td className="py-4 px-4">{item.title}</td>
-                      <td className="py-4 px-4">
-                        {moment(item.from).format("yyy, MMM DD")}
-                      </td>
-                      <td className="py-4 px-4">
-                        {moment(item.to).format("yyy, MMM DD")}
-                      </td>
-                      <td className="py-4 px-4">{item.repetition}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        <td>{item.title}</td>
+                        <td>{moment(item.from).format("yyy, MMM DD")}</td>
+                        <td>{moment(item.to).format("yyy, MMM DD")}</td>
+                        <td>{item.repetition}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               count={count}

@@ -34,7 +34,7 @@ const DashboardNavbar = ({
   }, [currentPathname]);
   return (
     <div>
-      <div className="  w-full fixed bg-white z-40">
+      <div className="  w-full fixed bg-white z-40 border-b-2 border-slate-50 md:border-transparent py-3">
         <div className="flex py-2 w-full md:w-[82%] 2xl:w-[86%] px-4 md:px-12 justify-between items-center  ">
           <div className="flex space-x-2 items-center">
             <CgMenuLeft
@@ -83,7 +83,7 @@ const DashboardNavbar = ({
           </div>
           <div className="flex space-x-2 md:space-x-4 items-center">
             <div>
-              <AiOutlineCustomerService className="text-lg" />
+              <AiOutlineCustomerService className=" text-2xl md:text-lg" />
             </div>
             <div
               onClick={() => {
@@ -103,7 +103,7 @@ const DashboardNavbar = ({
                 router.push("/dashboard/myAccount");
               }}
               className={`${
-                pathname ? "size-4 md:size-6" : "size-6 md:size-12"
+                pathname ? "size-6 md:size-6" : "size-6 md:size-12"
               } flex cursor-pointer justify-center  items-center bg-muted  bg-opacity-10 rounded-full`}
             >
               <img src="/face.jpg" className="rounded-full " />
@@ -111,7 +111,7 @@ const DashboardNavbar = ({
             {pathname != null && (
               <Link
                 href={pathname ?? ""}
-                className="size-6 md:size-12 flex cursor-pointer justify-center text-xl md:text-2xl text-white items-center bg-primary  rounded-full"
+                className="size-8 md:size-12 flex cursor-pointer justify-center text-xl md:text-2xl text-white items-center bg-primary  rounded-full"
               >
                 <BsPlus />
               </Link>

@@ -50,7 +50,7 @@ const Page = () => {
   return loading ? (
     <Spinner />
   ) : (
-    <div className=" pt-0 px-6 space-y-4 pb-24">
+    <div className=" pt-0 md:px-6 space-y-4 pb-24">
       <div className="border border-slate-100 rounded-lg p-5">
         <form
           onSubmit={(e) => {
@@ -66,7 +66,7 @@ const Page = () => {
               setUpdatingUser(false);
             });
           }}
-          className="w-6/12 2xl:w-4/12"
+          className=" w-full md:w-6/12 2xl:w-4/12"
         >
           <h1 className="font-bold text-lg">Personal Information</h1>
           <p className="text-sm text-muted mb-8">Update personal information</p>
@@ -94,7 +94,7 @@ const Page = () => {
         </form>
       </div>
       <div className="border border-slate-100 rounded-lg p-5">
-        <div className="w-6/12 2xl:w-4/12">
+        <div className="md:w-6/12 2xl:w-4/12">
           <h1 className="font-bold text-lg">Church Information</h1>
           <p className="text-sm text-muted mb-8">Update church information</p>
           <form
@@ -137,7 +137,7 @@ const Page = () => {
         </div>
       </div>
       <div className="border border-slate-100 rounded-lg p-5  ">
-        <div className="w-6/12 2xl:w-4/12">
+        <div className="w-full md:w-6/12 2xl:w-4/12">
           <h1 className="font-bold text-lg">Authentication</h1>
           <p className="text-sm text-muted mb-3">
             You are currently logged in, you can logout by pressing button below

@@ -49,7 +49,7 @@ const Page = () => {
           Add Group
         </Link>
       </div> */}
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -69,55 +69,57 @@ const Page = () => {
                 <GroupMemberActions uuid={selectedGroups[0]} />
               )}
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="text-start py-2 px-4">Registered At</th>
-                  <th className="text-start py-2 px-4">Name</th>
-                  <th className="text-start py-2 px-4">Phone</th>
-                  <th className="text-start py-2 px-4">Address</th>
-                  <th className="text-start py-2 px-4">Gender</th>
-                  <th className="text-start py-2 px-4">Job</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="px-4 py-4">
-                        <input
-                          onClick={() => {
-                            // alert(value);
-                            if (selectedGroups.includes(item.uuid)) {
-                              setSelectedGroups([]);
-                            } else {
-                              setSelectedGroups([item.uuid]);
-                            }
-                          }}
-                          checked={selectedGroups.includes(item.uuid)}
-                          className="checkbox-style"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td className="py-4 px-4">
-                        {moment(item.Member.createdAt).format("yyy, MMM DD")}
-                      </td>
-
-                      <td className="py-4 px-4">{item.Member.name}</td>
-                      <td className="py-4 px-4">
-                        {item.Member.phone || "No Phone"}
-                      </td>
-                      <td className="py-4 px-4">{item.Member.address}</td>
-                      <td className="py-4 px-4">{item.Member.gender}</td>
-                      <td className="py-4 px-4">
-                        {item.Member.work || "No Job"}
-                      </td>
+            <div className="relative overflow-x-auto">
+              <div className="relative overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Registered At</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Gender</th>
+                      <th>Job</th>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => {
+                      return (
+                        <tr key={item.uuid} className=" even:bg-background ">
+                          <td className="px-4 py-4">
+                            <input
+                              onClick={() => {
+                                // alert(value);
+                                if (selectedGroups.includes(item.uuid)) {
+                                  setSelectedGroups([]);
+                                } else {
+                                  setSelectedGroups([item.uuid]);
+                                }
+                              }}
+                              checked={selectedGroups.includes(item.uuid)}
+                              className="checkbox-style"
+                              type="checkbox"
+                            />
+                          </td>
+                          <td>
+                            {moment(item.Member.createdAt).format(
+                              "yyy, MMM DD"
+                            )}
+                          </td>
+
+                          <td>{item.Member.name}</td>
+                          <td>{item.Member.phone || "No Phone"}</td>
+                          <td>{item.Member.address}</td>
+                          <td>{item.Member.gender}</td>
+                          <td>{item.Member.work || "No Job"}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <Pagination
               limit={limit}
               count={count}

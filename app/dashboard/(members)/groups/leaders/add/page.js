@@ -80,7 +80,7 @@ const Page = () => {
             toast.error("No member selected");
           }
         }}
-        className=" rounded-lg p-8"
+        className=" rounded-lg pb-12 md:p-8"
       >
         <div className="grid grid-cols-2 gap-6 mb-8">
           {/* {byGroup} */}
@@ -151,34 +151,36 @@ const Page = () => {
               Selected group members ({data.length})
             </h1>
             <div className=" py-2 px-10 rounded-lg mb-5">
-              <table className="w-full">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th className="text-start py-2 px-4">Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item) => {
-                    return (
-                      <tr key={item.uuid} className=" even:bg-background ">
-                        <td className="px-4 py-4">
-                          <input
-                            onClick={() => {
-                              setData([...data.filter((e) => e != item)]);
-                            }}
-                            checked={true}
-                            className="checkbox-style"
-                            type="checkbox"
-                          />
-                        </td>
+              <div className="relative overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => {
+                      return (
+                        <tr key={item.uuid} className=" even:bg-background ">
+                          <td className="px-4 py-4">
+                            <input
+                              onClick={() => {
+                                setData([...data.filter((e) => e != item)]);
+                              }}
+                              checked={true}
+                              className="checkbox-style"
+                              type="checkbox"
+                            />
+                          </td>
 
-                        <td className="py-1 px-4">{item.name}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                          <td className="py-1 px-4">{item.name}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}

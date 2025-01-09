@@ -8,57 +8,52 @@ import toast from "react-hot-toast";
 import { BsChevronRight } from "react-icons/bs";
 import { useState } from "react/";
 import { useContext } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { addContribution } from "@/app/services/contributionServices";
+import { addGroup } from "@/app/services/groupsServices";
+import TextareaField from "@/app/components/textareaForm";
 
 const Page = () => {
   const [uploading, setUploading] = useState(false);
   const { selectedChurch, setPageTitle } = useContext(ChurchContext);
   const router = useRouter();
-  const searchparams = useSearchParams();
-  const uuid = searchparams.get("uuid");
-  const [selectedMember, setSelectedMember] = useState({});
-
   useEffect(() => {
-    setPageTitle("Record Pledge");
+    setPageTitle("New Poster request");
   }, []);
   return (
     <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-
           setUploading(true);
           const payload = {
-            amount: e.target.amount.value,
-            pledge_uuid: uuid,
+            name: e.target.name.value,
+            church_uuid: selectedChurch.uuid,
           };
-          addContribution(payload)
+          addGroup(payload)
             .then((response) => {
               console.log(response.data);
               setUploading(false);
               toast.success("Added successfully");
-              router.back();
+              router.push("/dashboard/groups");
               //   e.clear();
             })
             .catch((e) => {
               console.log(e);
-              toast.error("Failed to add");
+              toast.error("Failed to add group");
               setUploading(false);
             });
         }}
         className=" rounded-lg pb-12 md:p-8"
       >
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <FormField
-            placeholder={"Enter amount "}
-            name={"amount"}
-            inputType={"number"}
-            label={"Amount"}
+          <TextareaField
+            placeholder={"Enter request description"}
+            name={"name"}
+            label={"Poster request description"}
           />
         </div>
-        <Button loading={uploading} isFull={false} text={"Add contribution "} />
+        <Button loading={uploading} isFull={false} text={"Create Poster"} />
       </form>
     </div>
   );

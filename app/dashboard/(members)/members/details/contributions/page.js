@@ -39,7 +39,7 @@ const Page = () => {
   }, [page, limit]);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -53,27 +53,27 @@ const Page = () => {
                 />
               </div>
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th className="text-start py-2 px-4">Paid</th>
-                  <th className="text-start py-2 px-4">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="py-4 px-4">
-                        {moment(item.createdAt).format("yyy, MMM DD")}
-                      </td>
+            <div className="relative overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th>Paid</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr key={item.uuid} className=" even:bg-background ">
+                        <td>{moment(item.createdAt).format("yyy, MMM DD")}</td>
 
-                      <td className="py-4 px-4">{item.amount} TZS</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                        <td>{item.amount} TZS</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
             <Pagination
               limit={limit}
               count={count}

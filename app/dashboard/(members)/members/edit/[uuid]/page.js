@@ -72,8 +72,8 @@ const Page = ({ params }) => {
     <Spinner />
   ) : (
     <div>
-      <form onSubmit={handleSubmit} className=" mt-4 p-8">
-        <div className="grid grid-cols-3 gap-6 mb-8">
+      <form onSubmit={handleSubmit} className=" mt-4 pb-12 md:p-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           <FormField
             placeholder="Enter member's name"
             name="name"

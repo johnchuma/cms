@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 .input-style {
- @apply bg-background focus:border  border-0 w-full py-4 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400
+  @apply bg-background focus:border  border-0 w-full py-4 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400;
 }
 .search-input-style {
-    @apply bg-background focus:border  border-0  py-3 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400
-   }
-.checkbox-style{
-    @apply rounded checked:bg-primary checked:focus:bg-primary checked:ring-primary checked:hover:bg-primary focus:ring-primary focus:border-primary hover:ring-primary 
+  @apply bg-background focus:border  border-0  py-3 focus:border-primary focus:ring-primary rounded-lg focus:bg-opacity-50 transition-all duration-200 placeholder:text-gray-400;
+}
+.checkbox-style {
+  @apply rounded checked:bg-primary checked:focus:bg-primary checked:ring-primary checked:hover:bg-primary focus:ring-primary focus:border-primary hover:ring-primary;
+}
+
+td {
+  @apply px-4 py-4 whitespace-nowrap;
+}
+th {
+  @apply text-start py-2 px-4 whitespace-nowrap;
 }

@@ -40,7 +40,7 @@ const Page = () => {
   }, [selectedChurch, page, limit]);
   return (
     <div>
-      <div className=" bg-white  p-8 rounded-lg">
+      <div className=" bg-white  pb-12 md:p-8 rounded-lg">
         {loading ? (
           <Spinner />
         ) : (
@@ -57,58 +57,63 @@ const Page = () => {
                 <MemberReportActions uuid={selectedMembers[0]} />
               )}
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="text-start py-2 px-4">Created At</th>
-                  <th className="text-start py-2 px-4">Member</th>
-                  <th className="text-start py-2 px-4">Report Type</th>
-                  <th className="text-start py-2 px-4">description</th>
-                  <th className="text-start py-2 px-4">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item) => {
-                  return (
-                    <tr key={item.uuid} className=" even:bg-background ">
-                      <td className="px-4 py-4">
-                        <input
-                          onClick={() => {
-                            // alert(value);
-                            if (selectedMembers.includes(item.uuid)) {
-                              setSelectedMembers([]);
-                            } else {
-                              setSelectedMembers([item.uuid]);
-                            }
-                          }}
-                          checked={selectedMembers.includes(item.uuid)}
-                          className="checkbox-style"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td className="py-4 px-4">
-                        {moment(new Date(item.createdAt)).format("yyy, MMM DD")}{" "}
-                      </td>
-                      <td className="py-4 px-4">{item.Member.name}</td>
-                      <td className="py-4 px-4">{item.type}</td>
-                      <td className="py-4 px-4 line-clamp-1">
-                        {item.description}
-                      </td>
-                      <td className="py-4 px-4">
-                        <div
-                          className={`${
-                            item.isActive ? "bg-green-100" : "bg-gray-100"
-                          } text-center py-1 rounded-lg`}
-                        >
-                          {item.isActive ? "Active" : "Not Active"}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="relative overflow-x-auto">
+              <table className="w-full ">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Created At</th>
+                    <th>Member</th>
+                    <th>Report Type</th>
+                    <th>description</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item) => {
+                    return (
+                      <tr key={item.uuid} className=" even:bg-background ">
+                        <td className="px-4 py-4">
+                          <input
+                            onClick={() => {
+                              // alert(value);
+                              if (selectedMembers.includes(item.uuid)) {
+                                setSelectedMembers([]);
+                              } else {
+                                setSelectedMembers([item.uuid]);
+                              }
+                            }}
+                            checked={selectedMembers.includes(item.uuid)}
+                            className="checkbox-style"
+                            type="checkbox"
+                          />
+                        </td>
+                        <td>
+                          {moment(new Date(item.createdAt)).format(
+                            "yyy, MMM DD"
+                          )}{" "}
+                        </td>
+                        <td>{item.Member.name}</td>
+                        <td>{item.type}</td>
+                        <td className="py-4 px-4 line-clamp-1">
+                          {item.description}
+                        </td>
+                        <td>
+                          <div
+                            className={`${
+                              item.isActive ? "bg-green-100" : "bg-gray-100"
+                            } text-center py-1 rounded-lg`}
+                          >
+                            {item.isActive ? "Active" : "Not Active"}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
             <Pagination
               limit={limit}
               count={count}

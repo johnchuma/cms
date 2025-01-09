@@ -27,7 +27,7 @@ const Page = () => {
   }, [selectedChurch, year]);
 
   return (
-    <div className="bg-white p-0 md:p-8 rounded-lg">
+    <div className="bg-white p-0 md:pb-12 md:p-8 rounded-lg">
       {loading ? (
         <Spinner />
       ) : (
@@ -82,7 +82,7 @@ const Page = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-col md:flex-row mt-8 space-y-4 md:space-x-6 items-stretch">
+          <div className="flex flex-col md:flex-row mt-8 space-y-4 md:space-y-0 md:space-x-6 items-stretch">
             <div className="w-full md:w-7/12 ">
               <LineChart
                 xaxis={Object.keys(data.membersIncrease)}
@@ -103,7 +103,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col space-y-4 md:flex-row mt-8 md:space-x-6 items-stretch">
+          <div className="flex flex-col space-y-4 md:flex-row mt-8 md:space-x-6 md:space-y-0 items-stretch">
             <div className=" w-full md:w-6/12 ">
               <BarChart
                 xaxis={Object.keys(data.sicknessReports)}

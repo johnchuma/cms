@@ -36,7 +36,7 @@ const Page = ({ params }) => {
       <Spinner />
     </div>
   ) : !data ? (
-    <div className="flex justify-center items-center p-8 text-muted">
+    <div className="flex justify-center items-center pb-12 md:p-8 text-muted">
       No Project available
     </div>
   ) : (

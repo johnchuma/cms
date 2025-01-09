@@ -44,14 +44,14 @@ const Page = () => {
   ) : (
     <div>
       <div className=" p-6 border border-slate-100  rounded-lg">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div>
             <h1 className="font-bold text-lg">200 messages remaining</h1>
             <p className="text-sm text-muted mb-8">
               You have 200 remaining messages
             </p>
           </div>
-          <div>
+          <div className="w-4/12 md:w-auto">
             <Button
               onClick={() => {
                 router.push(`/dashboard/smsInventory/add`);

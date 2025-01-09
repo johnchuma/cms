@@ -30,12 +30,12 @@ const Page = () => {
   }, [selectedChurch, year]);
 
   return (
-    <div className="bg-white p-8 rounded-lg">
+    <div className="bg-white pb-12 md:p-8 rounded-lg">
       {loading ? (
         <Spinner />
       ) : (
         <div className="space-y-6">
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             {[
               {
                 title: "Total Tithings",
@@ -91,7 +91,7 @@ const Page = () => {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <HorizontalBarChart
               xaxis={Object.keys(data.tithingsByWeek)}
               setYear={setYear}
