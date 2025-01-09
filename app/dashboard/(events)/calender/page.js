@@ -41,8 +41,8 @@ const Page = () => {
           <Spinner />
         ) : (
           <div>
-            <div className="flex ">
-              <div className="w-8/12 pr-24 ">
+            <div className="flex flex-col md:flex-row ">
+              <div className=" w-full md:w-8/12 pr-24 ">
                 <div className="flex justify-between">
                   <h1 className="text-lg font-bold">Upcomming Events</h1>
                   <div className="bg-background flex space-x-1 cursor-pointer rounded-lg text-sm px-2 py-1">
@@ -96,7 +96,7 @@ const Page = () => {
                   })}
                 </div>
               </div>
-              <div className="w-4/12">
+              <div className="w-full md:w-4/12">
                 <Calender setSelectedEvents={setSelectedEvents} events={data} />
               </div>
             </div>
