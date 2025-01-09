@@ -42,8 +42,8 @@ const Page = () => {
         ) : (
           <div>
             <div className="flex flex-col md:flex-row ">
-              <div className=" w-full md:w-8/12 pr-24 ">
-                <div className="flex justify-between">
+              <div className=" w-full md:w-8/12 md:pr-24 ">
+                <div className="flex justify-between   ">
                   <h1 className="text-lg font-bold">Upcomming Events</h1>
                   <div className="bg-background flex space-x-1 cursor-pointer rounded-lg text-sm px-2 py-1">
                     {["All", "This Month"].map((item, index) => {
