@@ -4,7 +4,7 @@ import { auth } from "../utils/firebase";
 import { getAccessToken } from "../utils/localStorageData";
 
 export const app = axios.create({
-  baseURL: "https://api.hemani.io",
+  baseURL: "http://localhost:5000",
 });
 
 export const register = async (data) => {

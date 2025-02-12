@@ -16,6 +16,10 @@ export const addChurch = async (data) => {
     },
   });
 };
+
+export const getChurch = async (uuid) => {
+  return await app.get(`/churches/${uuid}`);
+};
 export const editChurch = async (uuid, data) => {
   return await app.patch(`/churches/${uuid}`, data, {
     headers: {

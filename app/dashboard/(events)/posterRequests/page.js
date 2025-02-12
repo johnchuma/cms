@@ -21,8 +21,8 @@ const Page = () => {
   const [selectTab, setSelectTab] = useState(0);
   const [selectedEvents, setSelectedEvents] = useState([]);
   useEffect(() => {
-    setPageTitle("Posters");
-    setAddPath("/dashboard/posters/add");
+    setPageTitle("Poster Requests");
+    setAddPath("/dashboard/posterRequests/add");
     const path = `${selectedChurch.uuid}/?limit=${limit}&page=${page}&filter=${
       selectTab === 0 ? "All" : "This Month"
     }`;

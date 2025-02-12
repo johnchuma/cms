@@ -9,6 +9,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Spinner from "@/app/components/spinner";
 import MemberActions from "@/app/components/memberActions";
 import Pagination from "@/app/components/pagination";
+import toast from "react-hot-toast";
 
 const Page = () => {
   const { selectedChurch, setPageTitle, setAddPath } =
@@ -42,7 +43,28 @@ const Page = () => {
           <Spinner />
         ) : (
           <div className="">
-            <div className="flex  flex-row justify-between mb-4 space-y-2 md:space-x-2 ">
+            <h1>
+              You can share the link with your members so they can register
+              themselves.
+              <a
+                onClick={() => {
+                  const urlToCopy = `https://hemani.io/registrationForm/?uuid=${selectedChurch.uuid}`;
+                  navigator.clipboard
+                    .writeText(urlToCopy)
+                    .then(() => {
+                      toast.success("Copied successfully");
+                    })
+                    .catch((err) => {
+                      console.error("Failed to copy: ", err);
+                      toast.error("Failed to copy");
+                    });
+                }}
+                className=" cursor-pointer text-primary underline ms-3"
+              >
+                Copy the link
+              </a>
+            </h1>
+            <div className="flex  flex-row justify-between mb-4 space-y-2 md:space-x-2 mt-2">
               <div className="flex space-x-2 items-center">
                 <AiOutlineSearch className="text-lg" />
                 <input
@@ -91,7 +113,9 @@ const Page = () => {
                   <tr>
                     <th></th>
                     <th>Name</th>
+                    <th>Phone</th>
                     <th>Gender</th>
+                    <th>Birth Date</th>
                     <th>Age</th>
                     <th>Address</th>
                     <th>Is baptised</th>
@@ -121,7 +145,9 @@ const Page = () => {
                           />
                         </td>
                         <td>{item.name}</td>
+                        <td>{item.phone}</td>
                         <td>{item.gender}</td>
+                        <td>{moment(item.birthDate).format("yyy, MMM DD")}</td>
                         <td>
                           {moment(new Date(item.birthDate)).fromNow(true)}{" "}
                         </td>

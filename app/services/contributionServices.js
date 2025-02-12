@@ -16,6 +16,18 @@ export const getPledgeContributions = async (uuid) => {
     },
   });
 };
+
+export const getSingleMemberContributions = async (page, limit, keyword) => {
+  return await app.get(
+    `/contributions/member/?page=${page}&limit=${limit}&keyword=${keyword}`,
+    {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    }
+  );
+};
+
 export const getContribution = async (uuid) => {
   return await app.get(`/contributions/${uuid}`, {
     headers: {
@@ -23,6 +35,7 @@ export const getContribution = async (uuid) => {
     },
   });
 };
+
 export const editContribution = async (uuid, data) => {
   return await app.patch(`/contributions/${uuid}`, data, {
     headers: {

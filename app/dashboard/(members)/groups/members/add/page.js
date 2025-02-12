@@ -33,10 +33,10 @@ const Page = () => {
     setGroup(null);
     setSuggestions([]);
     if (group) {
-      query = `${selectedChurch.uuid}/?group=${group}`;
+      query = `${selectedChurch.uuid}/?group=${group}&page=1&limit=2000`;
       getData(query);
     } else if (keyword.length > 2) {
-      query = `${selectedChurch.uuid}/?keyword=${keyword}`;
+      query = `${selectedChurch.uuid}/?keyword=${keyword}&page=1&limit=2000`;
       getData(query);
     } else {
       //   setData([]);
@@ -46,10 +46,13 @@ const Page = () => {
   //Get members
   const getData = (query) => {
     getChurchMembers(query).then((response) => {
+      console.log(response);
       if (byGroup == "true") {
-        setData(response.data.body);
+        console.log(response.data.body.data);
+        setData(response.data.body.data);
       } else {
-        setSuggestions(response.data.body);
+        console.log(response.data.body.data);
+        setSuggestions(response.data.body.data);
       }
     });
   };

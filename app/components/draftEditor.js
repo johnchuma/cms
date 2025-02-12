@@ -1,10 +1,14 @@
-// components/DraftEditor.js
 "use client"; // Enforce client-side rendering
 import dynamic from "next/dynamic";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
-const { Editor } = dynamic(() => import("react-draft-wysiwyg"), { ssr: false });
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
+// Dynamically import Editor from react-draft-wysiwyg
+const Editor = dynamic(
+  () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
+  { ssr: false }
+);
 
 const DraftEditor = ({ value, onChange }) => {
   const [editorState, setEditorState] = useState(() =>
@@ -30,7 +34,7 @@ const DraftEditor = ({ value, onChange }) => {
     });
 
   return (
-    <div className="bg-background  p-2 rounded-lg min-h-[150px]">
+    <div className="bg-background p-2 rounded-lg min-h-[150px]">
       <Editor
         editorState={editorState}
         onEditorStateChange={handleEditorChange}
@@ -52,7 +56,7 @@ const DraftEditor = ({ value, onChange }) => {
             options: ["bold", "italic", "underline", "strikethrough"],
             fontSize: { options: [8, 10, 12, 14, 16, 18, 24, 30, 36, 48, 60] },
           },
-          fontSize: { options: [8, 10, 12, 14, 16, 18, 24, 30, 36, 48, 60] }, // Ensure correct placement
+          fontSize: { options: [8, 10, 12, 14, 16, 18, 24, 30, 36, 48, 60] },
           image: {
             uploadCallback: uploadImageCallback,
             alt: { present: true, mandatory: false },

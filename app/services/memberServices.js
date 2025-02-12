@@ -10,6 +10,13 @@ export const addMember = async (data) => {
   });
 };
 
+export const loginMember = async (data) => {
+  return await app.post("/members/auth/login", data, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
+};
 export const getMemberDetails = async (uuid, data) => {
   return await app.get(`/members/${uuid}`, {
     headers: {

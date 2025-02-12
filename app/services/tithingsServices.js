@@ -16,6 +16,16 @@ export const getTithings = async (uuid) => {
     },
   });
 };
+export const getSingleMemberTithings = async (page, limit, keyword) => {
+  return await app.get(
+    `/tithings/member/?page=${page}&limit=${limit}&keyword=${keyword}`,
+    {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    }
+  );
+};
 export const getMemberTithings = async (uuid) => {
   return await app.get(`/tithings/member/${uuid}`, {
     headers: {

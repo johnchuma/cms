@@ -16,6 +16,26 @@ export const getGroupProjects = async (uuid) => {
     },
   });
 };
+export const getMemberProjects = async (page, limit, keyword) => {
+  return await app.get(
+    `/projects/?page=${page}&limit=${limit}&keyword=${keyword}`,
+    {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    }
+  );
+};
+export const getSingleMemberProjects = async (page, limit, keyword) => {
+  return await app.get(
+    `/projects/member/?page=${page}&limit=${limit}&keyword=${keyword}`,
+    {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    }
+  );
+};
 export const getGroupProjectsReport = async (uuid) => {
   return await app.get(`/projects/report/group/${uuid}`, {
     headers: {

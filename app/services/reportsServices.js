@@ -10,6 +10,13 @@ export const getMembersStats = async (
     },
   });
 };
+export const getSingleMemberStats = async () => {
+  return await app.get(`reports/member`, {
+    headers: {
+      Authorization: getAccessToken(),
+    },
+  });
+};
 
 export const getFinanceReport = async (
   uuid,

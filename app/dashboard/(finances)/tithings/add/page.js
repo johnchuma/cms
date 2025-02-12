@@ -28,14 +28,14 @@ const Page = () => {
     setSelectedMember({});
     setSuggestions([]);
     if (keyword.length > 2) {
-      query = `${selectedChurch.uuid}/?keyword=${keyword}`;
+      query = `${selectedChurch.uuid}/?keyword=${keyword}&page=1&limit=1000`;
       getData(query);
     }
   }, [keyword]);
 
   const getData = (query) => {
     getChurchMembers(query).then((response) => {
-      setSuggestions(response.data.body);
+      setSuggestions(response.data.body.data);
     });
   };
 

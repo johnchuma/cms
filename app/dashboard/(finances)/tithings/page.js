@@ -84,6 +84,7 @@ const Page = () => {
                               type="checkbox"
                             />
                           </td>
+
                           <td>
                             {moment(item.createdAt).format("yyy, MMM DD")}
                           </td>

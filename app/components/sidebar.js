@@ -95,8 +95,8 @@ const Sidebar = ({
       icon: <AiOutlineCalendar />,
     },
     {
-      title: "Posters",
-      path: "/dashboard/posters",
+      title: "Posters Requests",
+      path: "/dashboard/posterRequests",
       activeOn: ["/dashboard/posters", "/dashboard/posters/add"],
       icon: <IoMdImages />,
     },

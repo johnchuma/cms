@@ -23,7 +23,16 @@ export const getMemberPledges = async (uuid) => {
     },
   });
 };
-
+export const getSingleMemberPledges = async (page, limit, keyword) => {
+  return await app.get(
+    `/pledges/member/?page=${page}&limit=${limit}&keyword=${keyword}`,
+    {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    }
+  );
+};
 export const getProjectPledgesReport = async (uuid) => {
   return await app.get(`/pledges/report/project/${uuid}`, {
     headers: {
