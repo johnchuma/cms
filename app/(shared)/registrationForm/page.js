@@ -1,46 +1,50 @@
-"use client";
+"use client"; // Mark the entire file as a client component
+
 import Button from "@/app/components/button";
 import FormField from "@/app/components/formForm";
 import SelectField from "@/app/components/selectForm";
-import { ChurchContext } from "@/app/dashboard/layout";
 import { addMember } from "@/app/services/memberServices";
-import Link from "next/link";
 import toast from "react-hot-toast";
-import { BsCheckCircle, BsChevronRight } from "react-icons/bs";
-import { useState } from "react/";
-import { useContext } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { BsCheckCircle } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { getChurch } from "@/app/services/churchServices";
 import Spinner from "@/app/components/spinner";
+import { Suspense } from "react";
 
-const Page = () => {
+// Client Component to handle the form and search params
+function RegistrationFormContent({ uuid }) {
   const [uploading, setUploading] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [registered, setRegistered] = useState(false);
-  const queryParams = useSearchParams();
-  const uuid = queryParams.get("uuid");
-  const router = useRouter();
+  const [loading, setLoading] = useState(true);
   const [church, setChurch] = useState({});
+  const router = useRouter();
+
   useEffect(() => {
-    getChurch(uuid).then((res) => {
-      setChurch(res.data.body);
-      setLoading(false);
-    });
-  }, []);
-  return loading ? (
-    <Spinner />
-  ) : registered ? (
-    <div className=" min-h-[80vh] flex flex-col justify-center items-center text-center p-6">
-      <BsCheckCircle className="size-24 text-green-500" />
-      <h1 className="font-semibold text-2xl mt-3">Umejisajili Kikamilifu</h1>
-      <p className=" text-muted">
-        Karibu kwenye familia ya {church.name}, utatumia namba yako ya simu na
-        tarehe ya kuzaliwa kuingia kwenye mfumo, ili kuona taarifa zako
-      </p>
-    </div>
-  ) : (
-    <div className="border-t-4 md:border-t-0 w-full md:w-8/12 mx-auto  border-primary">
+    if (uuid) {
+      getChurch(uuid).then((res) => {
+        setChurch(res.data.body);
+        setLoading(false);
+      });
+    }
+  }, [uuid]);
+
+  if (loading) return <Spinner />;
+  if (registered) {
+    return (
+      <div className="min-h-[80vh] flex flex-col justify-center items-center text-center p-6">
+        <BsCheckCircle className="size-24 text-green-500" />
+        <h1 className="font-semibold text-2xl mt-3">Umejisajili Kikamilifu</h1>
+        <p className="text-muted">
+          Karibu kwenye familia ya {church.name}, utatumia namba yako ya simu na
+          tarehe ya kuzaliwa kuingia kwenye mfumo, ili kuona taarifa zako
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="border-t-4 md:border-t-0 w-full md:w-8/12 mx-auto border-primary">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -65,7 +69,6 @@ const Page = () => {
               setUploading(false);
               toast.success("Imeongezwa kwa mafanikio");
               setRegistered(true);
-              //   e.clear();
             })
             .catch((e) => {
               console.log(e);
@@ -79,7 +82,6 @@ const Page = () => {
         <p className="text-muted">
           Jaza taarifa zako, kujisajili kwenye kanisa letu
         </p>
-
         <div className="grid md:grid-cols-2 gap-6 mb-8 mt-5">
           <FormField
             placeholder={"Andika jina lako"}
@@ -159,6 +161,20 @@ const Page = () => {
       </form>
     </div>
   );
-};
+}
 
-export default Page;
+// Main Page component with Suspense
+function PageContent() {
+  const searchParams = useSearchParams();
+  const uuid = searchParams.get("uuid");
+
+  return <RegistrationFormContent uuid={uuid} />;
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<Spinner />}>
+      <PageContent />
+    </Suspense>
+  );
+}
