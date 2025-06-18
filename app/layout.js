@@ -11,6 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="facebook-domain-verification"
+          content="qalqux8lvmic3tbrq2kq8i9thx02uj"
+        />
+      </head>
       <body className={plusJakartaSans.className}>
         <Toaster position="top-right" />
         {children}
