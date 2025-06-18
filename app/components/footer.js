@@ -62,8 +62,10 @@ const Footer = () => {
           <h1 className="text-lg font-bold">Contacts</h1>
           <div className="flex flex-col space-y-2 mt-2 md:mt-4">
             {[
-              { title: "info@hemani.io", path: "#aboutus" },
-              { title: "+255627707434", path: "#aboutus" },
+              { title: "Hemani Technologies Limited", path: "#" },
+              { title: "Mikocheni, 0000 Dar es salaam", path: "#" },
+              { title: "support@hemani.io", path: "#" },
+              { title: "+255756345676", path: "#" },
             ].map((item) => {
               return (
                 <Link
